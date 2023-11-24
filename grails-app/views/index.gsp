@@ -1,77 +1,79 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="layout" content="main"/>
-    <title>Welcome to Grails</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <asset:stylesheet src="stylesAccueil.css"/>
+    <title>Hôpital XYZ</title>
 </head>
 <body>
-    <content tag="nav">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Environment: ${grails.util.Environment.current.name}</a></li>
-                <li><a href="#">App profile: ${grailsApplication.config.grails?.profile}</a></li>
-                <li><a href="#">App version:
-                    <g:meta name="info.app.version"/></a>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Grails version:
-                    <g:meta name="info.app.grailsVersion"/></a>
-                </li>
-                <li><a href="#">Groovy version: ${GroovySystem.getVersion()}</a></li>
-                <li><a href="#">JVM version: ${System.getProperty('java.version')}</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artefacts <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Controllers: ${grailsApplication.controllerClasses.size()}</a></li>
-                <li><a href="#">Domains: ${grailsApplication.domainClasses.size()}</a></li>
-                <li><a href="#">Services: ${grailsApplication.serviceClasses.size()}</a></li>
-                <li><a href="#">Tag Libraries: ${grailsApplication.tagLibClasses.size()}</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Installed Plugins <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-                    <li><a href="#">${plugin.name} - ${plugin.version}</a></li>
-                </g:each>
-            </ul>
-        </li>
-    </content>
+<header>
+    <div class="container">
+        <h1>Hôpital XYZ</h1>
+        <p>Des soins de qualité à votre service</p>
+    </div>
+</header>
 
-    <div class="svg" role="presentation">
-        <div class="grails-logo-container">
-            <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
+<section id="hero">
+    <div class="container">
+        <h2>Bienvenue à l'Hôpital XYZ</h2>
+        <p>Offrant des soins exceptionnels depuis 20 ans</p>
+
+        <sec:ifNotLoggedIn>
+            <g:link controller="login" action="auth"> <button type="button" class="btn btn-primary">Acceder à l'espace </button></g:link>
+        </sec:ifNotLoggedIn>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <h2>Nos Services</h2>
+        <div class="service" onmouseover="animateService(this)" onmouseout="resetAnimation(this)">
+            <i class="fas fa-heartbeat"></i>
+            <h3>Cardiologie</h3>
+            <p>Description du service de cardiologie.</p>
+        </div>
+        <div class="service" onmouseover="animateService(this)" onmouseout="resetAnimation(this)">
+            <i class="fas fa-stethoscope"></i>
+            <h3>Médecine Générale</h3>
+            <p>Description du service de médecine générale.</p>
         </div>
     </div>
+</section>
 
-    <div id="content" role="main">
-        <section class="row colset-2-its">
-            <h1>Welcome to Grails</h1>
-
-            <p>
-                Congratulations, you have successfully started your first Grails application! At the moment
-                this is the default page, feel free to modify it to either redirect to a controller or display
-                whatever content you may choose. Below is a list of controllers that are currently deployed in
-                this application, click on each to execute its default action:
-            </p>
-
-            <div id="controllers" role="navigation">
-                <h2>Available Controllers:</h2>
-                <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller">
-                            <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
-                        </li>
-                    </g:each>
-                </ul>
-            </div>
-        </section>
+<section id="doctors">
+    <div class="container">
+        <h2>Nos Médecins</h2>
+        <div class="doctor" onmouseover="animateService(this)" onmouseout="resetAnimation(this)">
+            <i class="fas fa-user-md"></i>
+            <h3>Dr. Jean Dupont</h3>
+            <p>Spécialité : Cardiologie</p>
+        </div>
+        <div class="doctor" onmouseover="animateService(this)" onmouseout="resetAnimation(this)">
+            <i class="fas fa-user-md"></i>
+            <h3>Dr. Marie Martin</h3>
+            <p>Spécialité : Pédiatrie</p>
+        </div>
     </div>
+</section>
 
+<section id="contact">
+    <div class="container">
+        <h2>Contactez-nous</h2>
+        <p>Pour prendre rendez-vous ou pour plus d'informations, veuillez nous contacter.</p>
+        <a href="tel:+123456789"><i class="fas fa-phone"></i> +1 (234) 567-89</a>
+        <p><i class="fas fa-map-marker-alt"></i> 123 Rue de l'Hôpital, Ville, Pays</p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2023 Hôpital XYZ. Tous droits réservés.</p>
+
+    </div>
+</footer>
+
+<script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script>
+<script src="scripts.js"></script>
 </body>
 </html>
