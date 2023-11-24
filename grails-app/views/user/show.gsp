@@ -3,6 +3,7 @@
     <head>
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
+        <asset:stylesheet src="styles.css"/>
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -36,7 +37,7 @@
                     <span id="role-label" class="property-label">Role</span>
                     <div class="property-value" aria-labelledby="email-label">${user.getAuthorities()*.authority.join(', ')}</div>
                 </li>
-                
+
                 <g:if test="${user.getAuthorities()*.authority.contains('ROLE_PATIENT')}">
 
                     <h1>Carnet de santé</h1>
@@ -87,5 +88,6 @@
                 </fieldset>
             </g:form>
         </div>
+
     </body>
 </html>
