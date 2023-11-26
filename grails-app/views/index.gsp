@@ -22,6 +22,8 @@
         <sec:ifNotLoggedIn>
             <g:link controller="login" action="auth"> <button type="button" class="btn btn-primary">Acceder à l'espace </button></g:link>
         </sec:ifNotLoggedIn>
+
+        <g:link controller='logout'>Logout</g:link>
     </div>
 </section>
 

@@ -78,12 +78,12 @@
 <div id="login">
     <div class="header">Login</div>
 
-    <form action="${postUrl ?: '/login/authenticate'}" method="POST" id="loginForm" class="cssform" autocomplete="off">
+    <form action="${postUrl ?: '/login/authenticate'}" method="POST" id="loginForm"  autocomplete="off">
         <label for="username">Username:</label>
         <input type="text" name="${usernameParameter ?: 'username'}" id="username" required>
 
         <label for="password">Password:</label>
-        <input type="password" name="${passwordParameter ?: 'password'}" id="password" required>
+        <input  type="password" name="${passwordParameter ?: 'password'}" id="password" required>
 
         <label id="login_checkbox" for="remember_me">
             <input type="checkbox" name="${rememberMeParameter ?: 'remember-me'}" id="remember_me">

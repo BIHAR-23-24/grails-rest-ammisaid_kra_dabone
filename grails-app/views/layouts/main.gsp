@@ -48,7 +48,7 @@
                     </a>
                     <div class="sb-sidenav-menu-heading">Menu</div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="sb-nav-link-icon"> <i class="fas fa-book-open"></i></i></div>
+                        <div class="sb-nav-link-icon"> <i class="fas fa-book-open"></i></div>
                         Utilisateurs
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
@@ -72,8 +72,6 @@
                         </nav>
                     </div>
 
-
-
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePagess" aria-expanded="false" aria-controls="collapsePages">
                         <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                         Carnet
@@ -85,8 +83,6 @@
                             <a class="nav-link" href="layout-sidenav-light.html"> Liste des Carnets</a>
                         </nav>
                     </div>
-
-
 
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePagesss" aria-expanded="false" aria-controls="collapsePages">
                         <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>

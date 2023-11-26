@@ -1,93 +1,87 @@
+<%@ page import="fr.bihar.esante.User" %>
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
-        <asset:stylesheet src="styles.css"/>
-        <title><g:message code="default.show.label" args="[entityName]" /></title>
-    </head>
-    <body>
-        <a href="#show-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-            </ul>
-        </div>
-        <div id="show-user" class="content scaffold-show" role="main">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
-            <g:if test="${flash.message}">
-            <div class="message" role="status">${flash.message}</div>
-            </g:if>
 
-            <ol class="property-list user">
+<head>
+    <meta name="layout" content="main" />
+    <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
+    <title>
+    <g:message code="default.create.label" args="[entityName]" />
+    </title>
+</head>
 
-                <li class="fieldcontain">
-                    <span id="username-label" class="property-label">Username</span>
-                    <div class="property-value" aria-labelledby="username-label">${user.username}</div>
-                </li>
+<body>
+    <div id="edit-user" class="content scaffold-edit" role="main">
+        <main>
+            <div class="container">
+                <div class="row">
+                    <!-- First Column -->
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="m-t-30" style="text-align: center;">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                                         class="img-circle" width="150">
+                                    <h4 class="card-title m-t-10">${user.username}</h4>
+                                    <div class="row text-center justify-content-md-center">
+                                        <div class="col-6"><i class="fa fa-user"></i>
+                                            <span class="font-medium">${user.getAuthorities()*.authority.join(', ')}</span>
+                                        </div>
+                                    </div>
+                                </div>
 
-                <li class="fieldcontain">
-                    <span id="email-label" class="property-label">Email</span>
-                    <div class="property-value" aria-labelledby="email-label">${user.email}</div>
-                </li>
-
-                <li class="fieldcontain">
-                    <span id="role-label" class="property-label">Role</span>
-                    <div class="property-value" aria-labelledby="email-label">${user.getAuthorities()*.authority.join(', ')}</div>
-                </li>
-
-                <g:if test="${user.getAuthorities()*.authority.contains('ROLE_PATIENT')}">
-
-                    <h1>Carnet de santé</h1>
-
-                    <li class="fieldcontain">
-                        <span id="fname-label" class="property-label">First name</span>
-                        <div class="property-value" aria-labelledby="fname-label">${user.carnet.fname}</div>
-                    </li>
-
-                    <li class="fieldcontain">
-                        <span id="lname-label" class="property-label">Last name</span>
-                        <div class="property-value" aria-labelledby="lname-label">${user.carnet.lname}</div>
-                    </li>
-
-                    <li class="fieldcontain">
-                        <span id="dob-label" class="property-label">DOB</span>
-                        <div class="property-value" aria-labelledby="dob-label"><g:formatDate date="${user.carnet.dob}" type="date" style="SHORT"/>
+                                <g:form resource="${this.user}" method="DELETE">
+                                    <div class="row mb-3" style="margin: 60px">
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3 mb-md-0">
+                                                <g:link class="btn btn-outline-secondary" action="edit" resource="${this.user}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating mb-3 mb-md-0">
+                                                <input class="btn btn-outline-danger" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </g:form>
+                            </div>
                         </div>
-                    </li>
-
-                    <li class="fieldcontain">
-                        <span id="tel-label" class="property-label">Tel</span>
-                        <div class="property-value" aria-labelledby="tel-label">${user.carnet.tel}</div>
-                    </li>
-
-                    <li class="fieldcontain">
-                        <span id="weight-label" class="property-label">Weight</span>
-                        <div class="property-value" aria-labelledby="weight-label">${user.carnet.weight}</div>
-                    </li>
-
-                    <li class="fieldcontain">
-                        <span id="height-label" class="property-label">Height</span>
-                        <div class="property-value" aria-labelledby="height-label">${user.carnet.height}</div>
-                    </li>
-
-                    <li class="fieldcontain">
-                        <span id="bt-label" class="property-label">Blood Type</span>
-                        <div class="property-value" aria-labelledby="bt-label">${user.carnet.bloodType}</div>
-                    </li>
-                </g:if>
-
-            </ol>
-
-            <g:form resource="${this.user}" method="DELETE">
-                <fieldset class="buttons">
-                    <g:link class="edit" action="edit" resource="${this.user}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                    <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-                </fieldset>
-            </g:form>
-        </div>
-
-    </body>
+                    </div>
+                    <!-- Second Column -->
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card h-100">
+                            <div class="card-footer text-muted d-flex flex-column">
+                            <!-- Your existing content goes here -->
+                                <g:if test="${user.getAuthorities()*.authority.contains('ROLE_PATIENT')}">
+                                    <small class="text-muted">First Name</small>
+                                    <h6>${user.carnet.fname} </h6>
+                                    <small class="text-muted">Last Name</small>
+                                    <h6>${user.carnet.lname} </h6>
+                                    <small class="text-muted">User Email</small>
+                                    <h6>${user.email} </h6>
+                                    <small class="text-muted">Date of Birth</small>
+                                    <h6>
+                                        <g:formatDate date="${user.carnet.dob}" type="date" style="SHORT" />
+                                    </h6>
+                                    <small class="text-muted p-t-30 db">User Phone Number</small>
+                                    <h6>${user.carnet.tel}</h6>
+                                    <small class="text-muted p-t-30 db">Weight</small>
+                                    <h6>${user.carnet.weight}</h6>
+                                    <small class="text-muted p-t-30 db">Height</small>
+                                    <h6>${user.carnet.height}</h6>
+                                    <small class="text-muted p-t-30 db">Blood Type</small>
+                                    <h6>${user.carnet.bloodType}</h6>
+                                    <br>
+                                </g:if>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
 </html>
