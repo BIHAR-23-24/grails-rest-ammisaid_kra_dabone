@@ -18,9 +18,9 @@
                 <div class="row">
                     <!-- First Column -->
                     <div class="col-lg-4 col-xlg-3 col-md-5">
-                        <div class="card">
+                        <div class="card" style="padding-bottom:115px ">
                             <div class="card-body">
-                                <div class="m-t-30" style="text-align: center;">
+                                <div class="m-t-30" style="text-align: center;margin-top: 50px">
                                     <img src="https://bootdey.com/img/Content/avatar/avatar6.png"
                                          class="img-circle" width="150">
                                     <h4 class="card-title m-t-10">${user.username}</h4>

@@ -68,12 +68,12 @@
 
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3">
-                                        <div class="form-group">
+                                        <div class="form-group" >
                                             <label style="margin-top: 20px;margin-bottom: 20px;" for="role">Choose a Role</label>
-                                            <div class="btn-group" role="group" aria-label="Role">
+                                            <div class="btn-group" role="group" aria-label="Role"  >
                                                 <g:each in="${Role.list()}" var="role" status="i">
-                                                    <input type="radio" id="role${role.id}" name="role" class="btn-check" autocomplete="off" value="${role.id}" <g:if test="${i == 0}">checked</g:if>>
-                                                    <label class="btn btn-outline-success" style="padding: 10px" for="role${role.id}">${role.authority}</label>
+                                                    <input  type="radio" id="role${role.id}" name="role" class="btn-check" autocomplete="off" value="${role.id}" <g:if test="${i == 0}">checked</g:if>>
+                                                    <label  class="btn btn-outline-primary" style="padding: 10px;margin: 10px" for="role${role.id}">${role.authority}</label>
                                                 </g:each>
                                             </div>
                                         </div>
