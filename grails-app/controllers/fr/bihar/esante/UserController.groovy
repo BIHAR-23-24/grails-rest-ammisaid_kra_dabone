@@ -86,13 +86,19 @@ class UserController {
     }
 
     def delete(Long id) {
+        User user
+        def user_role
         if (id == null) {
             notFound()
             return
         }
-
-        userService.delete(id)
-
+        user =  userService.get(id) // get the user to be delete
+        println (user.authorities)
+        user_role = user.authorities // get its roles
+        user_role.each {
+            UserRole.remove(user,it) // for each role we delete both role_id and the user_id from join table
+        }
+        userService.delete(id) // try to delete safly knowing that constraint in UserRole join will be not voilated
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), id])
