@@ -11,12 +11,22 @@
 </head>
 <body>
 
-        <div id="layoutSidenav_content"style="width: 1100px">
+        <div id="layoutSidenav_content"style="padding-left:20px;padding-right: 20px">
                     <div class="card mb-5">
                         <div class="card-header">
-                            <i class="fas fa-table me-1"></i>
-                            Users
+                            <div class="row">
+                                <div class="col-6">
+                                    <g:link class="btn btn-outline-secondary" action="create" resource="${this.user}">
+                                        <i class="fas fa-table me-1"></i>
+                                        <g:message code="default.button.create.label" default="Create" />
+                                    </g:link>
+                                </div>
+                                <div class="col-6">
+                                    All Users
+                                </div>
+                            </div>
                         </div>
+
                         <div class="card-body">
                             <table id="datatablesSimple">
                                 <g:each in="${User.list()}" var="user">
