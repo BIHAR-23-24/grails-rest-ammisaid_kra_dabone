@@ -4,6 +4,12 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'note.label', default: 'Note')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <style>
+        /* Style to hide the placeholder text by default */
+        .form-control.placeholder-visible::placeholder {
+            color: transparent;
+        }
+        </style>
     </head>
     <body>
         <a href="#create-note" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -25,14 +31,28 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
-            <g:form resource="${this.note}" method="POST">
-                <fieldset class="form">
-                    <f:all bean="note"/>
-                </fieldset>
-                <fieldset class="buttons">
-                    <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
-                </fieldset>
-            </g:form>
-        </div>
+                 <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title mb-4">Notes</h2>
+                        <g:form resource="${this.note}" method="POST">
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <div class="rich-text-editor" contenteditable>
+                                    <p >Patient Name : <span style="color: darkblue"></span> </p>
+                                    <p>Diagnosis: Anxiety, back and neck pain, scoliosis, obesity</p>
+                                    <p>Recommended Treatment: Gym membership, Massage, Vitamin D, Magnesium</p>
+                                    <p>Duration of Treatment: 1 year</p>
+                                    <p>Date: 2/22/2022</p>
+                                    <p>Licensed Practitioner: William Shakespear MD</p>
+                                    <p>Signature of Licensed Practitioner: William Shakespear M</p>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit Note</button>
+                        </g:form>
+                    </div>
+                </div>
+         </div>
     </body>
+
 </html>

@@ -29,7 +29,7 @@
                         <div class="col-lg-7">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header">
-                                    <h3>Edit ${this.user.username}'s Account</h3>
+                                    <h3>Editing ${this.user.username}'s Account</h3>
                                 </div>
                                 <div class="card-body">
                                     <g:if test="${flash.message}">
@@ -49,21 +49,27 @@
                                         <g:hiddenField name="version" value="${this.user?.version}" />
 
                                         <div class="form-floating mb-3">
-                                            <g:textField class="form-control" id="username" type="text"
-                                                         placeholder="Username" name="username" />
-                                            <label for="username">Username</label>
+                                            <g:textField class="form-control"
+                                                         id="username" type="text"
+                                                         name="username"
+                                                         placeholder="username" />
+                                            <label for="username" style="color: lightslategrey">Your current username is ${this.user.username}</label>
                                         </div>
 
                                         <div class="form-floating mb-3">
-                                            <g:textField class="form-control" id="email" type="email" placeholder="Email"
+                                            <g:textField class="form-control"
+                                                         id="email" type="email"
+                                                         placeholder="email"
                                                          name="email" />
-                                            <label for="username">Email</label>
+                                            <label style="color: lightslategrey" for="email">Your current email is ${this.user.email}</label>
                                         </div>
 
                                         <div class="form-floating mb-3">
-                                            <g:passwordField class="form-control" id="password" type="password"
-                                                             placeholder="Password" name="password" />
-                                            <label for="username">Password</label>
+                                            <g:passwordField class="form-control"
+                                                             id="password"
+                                                             type="password" placeholder="Password"
+                                                             name="password" />
+                                            <label for="username" style="color: lightslategrey">Entre Your new Password</label>
                                         </div>
 
                                             <div class="form-floating mb-3" style="width:400px;margin-top: 25px">
