@@ -4,8 +4,6 @@ class Note {
 
     String description
 
-
-
     static hasMany = [files: CustomFile]
 
     static belongsTo = Consultation

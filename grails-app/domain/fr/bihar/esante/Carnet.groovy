@@ -20,8 +20,8 @@ class Carnet {
         lname nullable: false, blank: false
         dob nullable: false
         tel nullable: true
-        weight nullable: false
-        height nullable: false
+        weight nullable: false,min: 40, max: 150
+        height nullable: false, min:140, max:230
         bloodType nullable: false
     }
 }

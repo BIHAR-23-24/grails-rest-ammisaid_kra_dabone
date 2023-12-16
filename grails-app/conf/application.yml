@@ -129,3 +129,6 @@ environments:
 customFile:
     basePath: C:/Users/gregg/IdeaProjects/grails_bihar_23_24/grails-app/assets/images/
     baseUrl: http://localhost:8080/assets/
+
+server:
+    port: 8090
