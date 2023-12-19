@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'note.label', default: 'Note')}" />
+        <g:set var="entityName" value="${message(code: 'note.js.label', default: 'Note')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -18,7 +18,16 @@
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:table collection="${noteList}" />
+%{--            <f:table collection="${noteList}" />--}%
+
+            <div class="card" style="width: 50rem;">
+                <g:each var="note" in="${noteList}">
+                    <ul class="list-group list-group-light list-group-small">
+                        <li class="list-group-item px-3">${note.description}</li>
+                    </ul>
+                </g:each>
+                <div class="card-footer bg-body-tertiary px-3">Card footer</div>
+            </div>
 
             <div class="pagination">
                 <g:paginate total="${noteCount ?: 0}" />

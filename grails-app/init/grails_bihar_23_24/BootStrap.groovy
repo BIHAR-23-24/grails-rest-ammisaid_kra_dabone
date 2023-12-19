@@ -33,7 +33,7 @@ class BootStrap {
                         consultationInstance.addToPathologies(Pathology.get(consultIdx))
                         consultationInstance.addToPathologies(Pathology.get(consultIdx + 1))
                         consultationInstance.addToPathologies(Pathology.get(consultIdx + 2))
-                        def noteInstance = new Note(description: "Ceci est une note très importante de la consultation")
+                        def noteInstance = new Note(description: "Ceci est une note.js très importante de la consultation")
 
                         (1..3).each {
                             Integer fileIdx ->

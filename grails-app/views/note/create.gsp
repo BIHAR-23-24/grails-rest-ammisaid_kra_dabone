@@ -4,10 +4,8 @@
     <meta name="layout" content="main" />
     <g:set var="entityName" value="${message(code: 'note.label', default: 'Note')}" />
     <title><g:message code="default.create.label" args="[entityName]" /></title>
-
-    <!-- Link to your specific stylesheet -->
-    <link rel="stylesheet" type="text/css" href="${resource(dir: 'assets/stylesheets', file: 'styles.css')}" />
-
+    <asset:javascript src="note.js"/>
+    <asset:stylesheet href="note_style.css"/>
 </head>
 <body>
 <a href="#create-note" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -29,30 +27,48 @@
             </g:eachError>
         </ul>
     </g:hasErrors>
-    <div class="card">
-        <div class="card-body">
-            <h2 class="card-title mb-4">Notes</h2>
-            <g:form resource="${this.note}" method="POST">
-                <div class="form-group">
-                    <label for="patientName">Patient Name</label>
-                    <input type="text" name="patientName" class="form-control" />
-                </div>
-                <!-- Add other input fields as needed -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-body">
+                        <g:form resource="${this.note}" method="POST" enctype="multipart/form-data">
+                            <!-- Doctor description -->
+                            <br/>
+                            <g:textArea value="fill description .. " name="description" id="description" rows="1" cols="50">
 
-                <!-- Your existing rich-text-editor contenteditable div -->
-                <div class="rich-text-editor" contenteditable>
-                    <!-- Your existing content -->
-                </div>
+                            </g:textArea>
 
-                <div class="form-floating mb-3">
-                    <input class="save btn btn-outline-success"
-                           type="submit"
-                           value="${message(code: 'default.button.create.label', default: 'Create')}"
-                    />
+                            <!--Image-->
+                            <div>
+                                <div class="mb-4 d-flex justify-content-center">
+                                    <img id="selectedImage" src="${resource(dir: 'images', file: 'upload_p_image.jpg')}"
+                                         alt="example placeholder" style="width: 200px;" />
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="btn btn-primary btn-rounded">
+                                        <label class="form-label text-white m-1" for="customFile1">Upload Patient Images</label>
+                                        <input name="CustomFile" type="file" class="form-control d-none btn-outline-primary" id="customFile1"
+                                               onchange="displaySelectedImage(event, 'selectedImage')"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input class="save btn btn-outline-success"
+                                       type="submit"
+                                       value="${message(code: 'default.button.create.label', default: 'Create')}"
+                                />
+                            </div>
+
+                        </g:form>
+                    </div>
                 </div>
-            </g:form>
+            </div>
         </div>
     </div>
-</div>
-</body>
+
+    </body>
 </html>
+

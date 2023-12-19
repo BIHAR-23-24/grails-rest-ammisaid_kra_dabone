@@ -16,11 +16,11 @@ class NoteServiceSpec extends Specification {
         // TODO: Populate valid domain instances and return a valid ID
         //new Note(...).save(flush: true, failOnError: true)
         //new Note(...).save(flush: true, failOnError: true)
-        //Note note = new Note(...).save(flush: true, failOnError: true)
+        //Note note.js = new Note(...).save(flush: true, failOnError: true)
         //new Note(...).save(flush: true, failOnError: true)
         //new Note(...).save(flush: true, failOnError: true)
         assert false, "TODO: Provide a setupData() implementation for this generated test suite"
-        //note.id
+        //note.js.id
     }
 
     void "test get"() {

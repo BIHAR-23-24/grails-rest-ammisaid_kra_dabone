@@ -45,7 +45,7 @@ class NoteControllerSpec extends Specification implements ControllerUnitTest<Not
         controller.save(null)
 
         then:"A 404 error is returned"
-        response.redirectedUrl == '/note/index'
+        response.redirectedUrl == '/note.js/index'
         flash.message != null
     }
 
@@ -66,7 +66,7 @@ class NoteControllerSpec extends Specification implements ControllerUnitTest<Not
         controller.save(note)
 
         then:"A redirect is issued to the show action"
-        response.redirectedUrl == '/note/show/1'
+        response.redirectedUrl == '/note.js/show/1'
         controller.flash.message != null
     }
 
@@ -149,7 +149,7 @@ class NoteControllerSpec extends Specification implements ControllerUnitTest<Not
         controller.update(null)
 
         then:"A 404 error is returned"
-        response.redirectedUrl == '/note/index'
+        response.redirectedUrl == '/note.js/index'
         flash.message != null
     }
 
@@ -170,7 +170,7 @@ class NoteControllerSpec extends Specification implements ControllerUnitTest<Not
         controller.update(note)
 
         then:"A redirect is issued to the show action"
-        response.redirectedUrl == '/note/show/1'
+        response.redirectedUrl == '/note.js/show/1'
         controller.flash.message != null
     }
 
@@ -199,7 +199,7 @@ class NoteControllerSpec extends Specification implements ControllerUnitTest<Not
         controller.delete(null)
 
         then:"A 404 is returned"
-        response.redirectedUrl == '/note/index'
+        response.redirectedUrl == '/note.js/index'
         flash.message != null
     }
 
@@ -215,7 +215,7 @@ class NoteControllerSpec extends Specification implements ControllerUnitTest<Not
         controller.delete(2)
 
         then:"The user is redirected to index"
-        response.redirectedUrl == '/note/index'
+        response.redirectedUrl == '/note.js/index'
         flash.message != null
     }
 }

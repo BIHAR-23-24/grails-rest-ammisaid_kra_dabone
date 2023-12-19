@@ -76,9 +76,12 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <input class="btn btn-success" type="button" id="submitForm"
-                                       value="${message(code: 'default.button.create.label', default: 'Create')}" />
+
+                            <div class="form-floating mb-3" style="width:400px;margin-top: 25px">
+                                <input class="save btn btn-outline-success"
+                                       type="submit"
+                                       value="${message(code: 'default.button.create.label', default: 'Create')}"
+                                />
                             </div>
 
                             <!-- ... (unchanged content) ... -->
