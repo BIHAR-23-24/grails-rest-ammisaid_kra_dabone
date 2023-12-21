@@ -14,9 +14,9 @@
     <g:if test="${flash.message}">
         <div class="message" role="status">${flash.message}</div>
     </g:if>
-    <g:hasErrors bean="${this.user}">
+    <g:hasErrors bean="${this.carnet}">
         <ul class="errors" role="alert">
-            <g:eachError bean="${this.user}" var="error">
+            <g:eachError bean="${this.carnet}" var="error">
                 <li <g:if test="${carnet in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
             </g:eachError>
         </ul>
@@ -26,8 +26,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="card shadow-lg border-0 rounded-lg mt-5">
-                        <div class="card-header">
-                            <h3>Création d'un carnet</h3>
+                        <div class="card-header" style="text-align: center;">
+                            <h3>Create carnet</h3>
                         </div>
                         <div class="card-body">
                             <g:if test="${flash.message}">
@@ -129,3 +129,14 @@
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
