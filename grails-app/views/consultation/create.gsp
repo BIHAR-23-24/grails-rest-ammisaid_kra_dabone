@@ -67,7 +67,7 @@
     </div>
 
 
-    <!--
+
     <script type="text/javascript">
         console.log('OK');
 
@@ -128,9 +128,8 @@
                 }
             }
         }
-        -->
 
-        <!--
+
         // Function to display selected pathology in a separate div and return selected keys
         function displaySelectedPathology(id) {
             const selectedPathologyDiv = document.getElementById('selectedPathologies');
@@ -152,7 +151,6 @@
         document.getElementById('pathologySearch').addEventListener('input', filterPathologies);
     </script>
 
--->
 
 
     </body>
