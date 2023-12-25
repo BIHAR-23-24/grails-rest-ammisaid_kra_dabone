@@ -28,7 +28,7 @@ class ConsultationController {
         respond new Consultation(params)
     }
 
-    /*
+
     def save(Consultation consultation) {
         if (consultation == null) {
             notFound()
@@ -82,7 +82,7 @@ class ConsultationController {
             '*' { respond consultation, [status: CREATED] }
         }
     }
-*/
+
 
 
     def delete(Long id) {
