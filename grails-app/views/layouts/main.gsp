@@ -14,6 +14,25 @@
         <asset:javascript src="script2Ad.js"/>
 
         <g:layoutHead/>
+
+        <style>
+
+        #layoutSidenav_content {
+            position: relative;
+            overflow: hidden;
+            background-image: url('${resource(dir: 'images', file: 'medical-4510408_1920.png')}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -5;
+            width: 100%;
+            height: 100%; /* Adjust the height as needed */
+        }
+
+
+
+
+        </style>
     </head>
     <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">

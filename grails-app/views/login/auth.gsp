@@ -10,10 +10,18 @@
 
 <style>
 body {
-    background-color: #87CEEB; /* Remplacer par le bleu ciel */
-    font-family: 'Ubuntu', sans-serif;
+     background-color: #87CEEB; /* Remplacer par le bleu ciel */
+     font-family: 'Ubuntu', sans-serif;
+ }
+.background-img {
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
-
 .main {
     background-color: #FFFFFF;
     width: 400px;
@@ -112,6 +120,8 @@ a {
 </style>
 
 <body>
+<img class="background-img" src="${resource(dir: 'images', file: 'medical-4510408_1920.png')}" alt="Background Image">
+
 <div class="main">
     <p class="sign" align="center">Sign in</p>
     <form action="${postUrl ?: '/login/authenticate'}" method="POST" id="loginForm"  autocomplete="off" class="form1">
