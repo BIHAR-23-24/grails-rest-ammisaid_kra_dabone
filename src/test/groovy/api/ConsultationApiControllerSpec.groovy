@@ -1,9 +1,10 @@
-package fr.bihar.esante
+package api
+
 
 import grails.testing.web.controllers.ControllerUnitTest
 import spock.lang.Specification
 
-class TestControllerSpec extends Specification implements ControllerUnitTest<TestController> {
+class ConsultationApiControllerSpec extends Specification implements ControllerUnitTest<ConsultationApiController> {
 
     def setup() {
     }
