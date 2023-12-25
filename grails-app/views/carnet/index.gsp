@@ -28,6 +28,7 @@
         </div>
 
         <div class="card-body">
+
             <table id="datatablesSimple">
                 <thead>
                 <tr>
@@ -39,6 +40,7 @@
                     <th>Weight</th>
                     <th>Height</th>
                     <th>Blood Type</th>
+                    <th>Action</th>
 
                 </tr>
                 </thead>
@@ -80,6 +82,15 @@
                             <g:fieldValue bean="${carnet}" field="bloodType" />
                         </td>
 
+                        <td>
+
+                            <g:form resource="${this.carnet}" method="DELETE">
+                                <fieldset class="buttons">
+                                    <g:link class="edit" action="edit" resource="${this.carnet}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                                    <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                                </fieldset>
+                            </g:form>
+                        </td>
                     </tr>
                 </g:each>
                 </tbody>
