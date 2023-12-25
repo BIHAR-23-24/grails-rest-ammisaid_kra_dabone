@@ -46,7 +46,8 @@
 
                             <div class="form-group">
                                 <label for="dob">Day of birth *</label>
-                                <input type="date" name="dob" class="form-control" required />
+%{--                                <input  type="date" name="dob" class="form-control"  required />--}%
+                                <g:datePicker name="dob"  default="${new Date().plus(7)}"/>
                             </div>
 
                             <div class="form-group">

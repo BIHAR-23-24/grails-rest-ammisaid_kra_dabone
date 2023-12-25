@@ -44,10 +44,10 @@ Pour les illustrations, un upload de fichier est attendu
 ## Api
 
 Vous devrez produire une API REST répondant aux requêtes suivantes :
-- GET, PUT, PATCH et DELETE sur /api/user/{id}
-- GET, POST sur /api/users
-- GET, PUT, PATCH et DELETE sur /api/consultation/{id}
-- GET, POST sur /api/consultations
+- GET, PUT, PATCH et DELETE sur /userApi/user/{id}
+- GET, POST sur /userApi/users
+- GET, PUT, PATCH et DELETE sur /userApi/consultation/{id}
+- GET, POST sur /userApi/consultations
 
 Les requêtes seront faites avec un corps en JSON et la réponse pourra être alternativement du JSON ou du XML selon l'encodage demandé lors de l'appel
 
@@ -65,7 +65,7 @@ Votre API devra être documentée sur le modèle suivant
 #### Get un user
 
 ```http
-  GET /api/user/{id}
+  GET /userApi/user/{id}
 ```
 
 | Parameter | Type     | Description                         |
