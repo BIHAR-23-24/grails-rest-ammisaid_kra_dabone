@@ -9,7 +9,7 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-    <!--
+
     <div class="row justify-content-center">
         <div class="col-lg-7">
             <div class="card shadow-lg border-0 rounded-lg mt-5">
@@ -65,7 +65,7 @@
             </div>
         </div>
     </div>
-    -->
+
 
     <!--
     <script type="text/javascript">
