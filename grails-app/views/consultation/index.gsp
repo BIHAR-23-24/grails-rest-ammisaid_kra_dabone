@@ -84,21 +84,28 @@
                             </td>
 -->
                             <td>
-                                <g:form resource="${this.consultation}" method="DELETE">
+
                                     <fieldset class="buttons">
                                         <!-- Edit Link -->
 
 
                                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">
-                                            ${message(code: 'default.button.edit.label', default: 'Edit')}
+                                            Modifier
                                         </button>
 
                                         <!-- Delete Button (in a modal) -->
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
-                                            ${message(code: 'default.button.delete.label', default: 'Delete')}
+                                        <button
+                                                type="button"
+                                                class="btn btn-danger btn-delete"
+                                            data-toggle="modal"
+                                            data-target="#deleteModal"
+                                            data-consultation-id="${consultation.id}"
+                                            >
+                                            Supprimer
                                         </button>
+
                                     </fieldset>
-                                </g:form>
+
                             </td>
 
 
@@ -113,7 +120,6 @@
 
         </div>
 
-        <!-- Delete Modal -->
         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -126,13 +132,24 @@
                     <div class="modal-body">
                         Êtes-vous sûr de vouloir supprimer cette consultation ?
                     </div>
+
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <!-- Add a delete button here if needed -->
+
+                        <g:form resource="${this.consultation}" controller="consultation" action="delete" method="DELETE">
+                            <input type="hidden" id="consultationId" name="id" value="" />
+                            <button type="submit" class="btn btn-danger">Supprimer</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        </g:form>
+
+
+
+
                     </div>
                 </div>
             </div>
+
         </div>
+
 
         <!-- Edit Modal -->
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -148,8 +165,11 @@
                         Êtes-vous sûr de vouloir modifier cette consultation ?
                     </div>
                     <div class="modal-footer">
+
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Modifier</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <!-- Add a submit button here if needed -->
+
+
                     </div>
                 </div>
             </div>
@@ -160,15 +180,10 @@
 
 
 
-    <!-- Include jQuery -->
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 
-
-    <!-- Your Custom Script -->
-    <script>
-        // Your custom script here
-    </script>
 
     <!-- Add this script at the end of your HTML body to handle modals -->
     <script>
@@ -215,6 +230,18 @@
             });
         });
     </script>
+
+    <script>
+        $(document).ready(function () {
+            $('.btn-delete').on('click', function () { <!-- Use '.btn-delete' as the selector -->
+                var consultationId = $(this).attr('data-consultation-id');
+                $('#consultationId').val(consultationId);
+            });
+        });
+    </script>
+
+
+
 
 
     </body>
