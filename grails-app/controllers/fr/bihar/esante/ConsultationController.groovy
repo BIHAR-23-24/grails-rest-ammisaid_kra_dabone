@@ -6,6 +6,7 @@ import static org.springframework.http.HttpStatus.*
 import org.springframework.web.multipart.commons.CommonsMultipartFile
 import org.springframework.web.multipart.MultipartFile
 
+
 @Secured('ROLE_ADMIN')
 class ConsultationController {
 
@@ -53,7 +54,9 @@ class ConsultationController {
             MultipartFile[] files = request.getFileMap().values().toArray(new MultipartFile[0])
 
             // Initialize consultation.note.files if null
-            consultation.note.files = consultation.note.files ?: []
+           // consultation.note.files = consultation.note.files ?: []
+            consultation.note.files =  []
+
 
             files.each { file ->
                 // Save file details in CustomFile without storing the content in the database
@@ -90,7 +93,8 @@ class ConsultationController {
         respond consultation
     }
 
-    @Secured(['ROLE_ADMIN','ROLE_AUX'])
+
+
     def update(Consultation consultation) {
         if (consultation == null) {
             notFound()
@@ -114,8 +118,8 @@ class ConsultationController {
             // Handle files
             MultipartFile[] files = request.getFileMap().values().toArray(new MultipartFile[0])
 
-            // Initialize consultation.note.files if null
-            consultation.note.files = consultation.note.files ?: []
+            // Initialize consultation.note.files if null consultation.note.files ?:
+            consultation.note.files =  []
 
             files.each { file ->
                 // Save file details in CustomFile without storing the content in the database

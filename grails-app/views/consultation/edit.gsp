@@ -17,7 +17,7 @@
                     <h1 class="text-center mb-4">Mettre à jour une consultation</h1>
 
                     <div class="mx-auto"> <!-- Centering the form -->
-                        <g:form resource="${this.consultation}" controller="consultation" action="update" method="PUT" enctype="multipart/form-data">
+                        <g:form resource="${this.consultation}" controller="consultation" action="save" method="POST" enctype="multipart/form-data">
 
                             <div class="form-group">
                                 <!-- Select Patient Carnet -->
@@ -124,7 +124,8 @@
         // Set to store selected pathologies
         let selectedPathologies = new Set();
 
-        // Function to filter and display pathologies based on search input
+        // Function to filter and display pat
+        // hologies based on search input
         function filterPathologies() {
             // Get the search input value
             const searchInput = document.getElementById('pathologySearch').value.trim().toLowerCase();
