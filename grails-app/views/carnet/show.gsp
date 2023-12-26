@@ -1,167 +1,170 @@
 <%@ page import="fr.bihar.esante.Carnet" %>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <meta name="layout" content="main" />
-    <g:set var="entityName" value="${message(code: 'carnet.label', default: 'Carnet')}" />
+    <g:set var="entityName" value="${message(code: 'consultation.label', default: 'Carnet')}" />
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <title><g:message code="default.show.label" args="[entityName]" /></title>
-    <title>Informations Personne</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-jCkMv2EJR3C5i5x6lM0VVmWU/zyN1GrAcmZ0y8ePFOK1uyS2pIjyYxgN8DrBY6Br5cuqtaN7i3HF8nLGs5xQrw==" crossorigin="anonymous" />
-    <style>
-
-    .person-info {
-        max-width: 600px;
-        margin: 50px auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        animation: animate__fadeIn 1s;
-        background-color: #fff; /* Couleur de fond */
-        color: #333; /* Couleur du texte */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .info-item {
-        margin-bottom: 15px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    label {
-        font-weight: bold;
-        color: #555; /* Couleur du texte des étiquettes */
-        font-size: 18px; /* Taille de police des labels */
-    }
-
-    span {
-        color: #333; /* Couleur du texte des valeurs */
-        cursor: pointer;
-        transition: color 0.3s ease-in-out;
-        font-size: 16px; /* Taille de police des valeurs */
-    }
-
-    .span-hovered {
-        color: #3498db; /* Changement de couleur au survol */
-    }
-
-    .consultation-list {
-        margin-top: 20px;
-    }
-
-    .edit-button, .delete-button {
-        margin-top: 20px;
-        font-size: 16px; /* Taille de police des boutons */
-        border-radius: 5px;
-        cursor: pointer;
-        padding: 10px 15px;
-    }
-
-    .edit-button {
-        background-color: #87CEEB; /* Couleur bleu ciel */
-        color: white;
-        border: none;
-        margin-right: 10px;
-    }
-
-    .edit-button:hover {
-        background-color: #3498db; /* Changement de couleur au survol */
-    }
-
-    .delete-button {
-        background-color: #e74c3c; /* Couleur rouge */
-        color: white;
-        border: none;
-    }
-
-    .delete-button:hover {
-        background-color: #c0392b; /* Changement de couleur au survol */
-    }
-
-    </style>
-    <script>
-        // Fonction pour ajouter une classe au survol
-        function handleHover(element) {
-            element.classList.add("span-hovered");
-        }
-
-        // Fonction pour supprimer la classe lorsqu'on quitte le survol
-        function handleLeave(element) {
-            element.classList.remove("span-hovered");
-        }
-    </script>
 </head>
-<body style="
-font-family: Arial, sans-serif;
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-">
-
-<div class="person-info">
-
-    <h1 style="color: black;">Viewing ${carnet.fname}'s Carnet  </h1>
-    <div class="info-item">
-        <label>Fname :</label>
-        <span onmouseover="handleHover(this)" onmouseleave="handleLeave(this)">${carnet.fname}</span>
-    </div>
-    <div class="info-item">
-        <label>Lname :</label>
-        <span onmouseover="handleHover(this)" onmouseleave="handleLeave(this)">${carnet.lname}</span>
-    </div>
-    <div class="info-item">
-        <label>Dob :</label>
-        <span onmouseover="handleHover(this)" onmouseleave="handleLeave(this)">${carnet.dob}</span>
-    </div>
-
-    <div class="info-item">
-        <label>Tel :</label>
-        <span onmouseover="handleHover(this)" onmouseleave="handleLeave(this)">${carnet.tel}</span>
-    </div>
-    <div class="info-item">
-        <label> Weight :</label>
-        <span onmouseover="handleHover(this)" onmouseleave="handleLeave(this)">${carnet.weight}</span>
-    </div>
-    <div class="info-item">
-        <label>Height :</label>
-        <span onmouseover="handleHover(this)" onmouseleave="handleLeave(this)">${carnet.height}</span>
-    </div>
-    <div class="info-item">
-        <label>Blood Type :</label>
-        <span onmouseover="handleHover(this)" onmouseleave="handleLeave(this)">${carnet.bloodType}</span>
-    </div>
-
-    <div class="consultation-list">
-        <div class="info-item">
-            <label>Consultations:</label>
+<body>
+<!--
+        <a href="#show-consultation" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+        <div class="nav" role="navigation">
+            <ul>
+                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+            </ul>
         </div>
-        <div class="consultation-item">
-            <g:each in="${carnet.consultations}" var="consultation">
-                <g:link controller="consultation" action="show" id="${consultation.id}">
-                    <span>${consultation.note}</span>
-                </g:link>
-            </g:each>
+        <div id="show-consultation" class="content scaffold-show" role="main">
+            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+            <g:if test="${flash.message}">
+    <div class="message" role="status">${flash.message}</div>
+</g:if>
+<f:display bean="carnet" />
+<g:form resource="${this.consultation}" method="DELETE">
+    <fieldset class="buttons">
+    <g:link class="edit" action="edit" resource="${this.carnet}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+    <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                </fieldset>
+</g:form>
         </div>
-    </div>
+        -->
 
-    <div class="text-center">
-        <td class="action-buttons">
-            <g:form resource="${this.carnet}" method="DELETE">
-                <button class="edit-button edit" onclick="editCarnet(this)">
-                    <g:link class="edit" action="edit" resource="${this.carnet}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-                </button>
+<div id="edit-user" class="content scaffold-edit mt-4" role="main">
 
-                <input class="delete-button delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+    <div class="container">
+        <div class="row">
+            <!-- First Column -->
+            <div class="col-lg-4 col-xlg-3 col-md-5">
+                <div class="card" >
+                    <div class="card-body">
+                        <div class="m-t-30" style="text-align: center;margin-top: 50px">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                                 class="img-circle" width="150">
+                            <h4 class="card-title m-t-10">${carnet.fname}</h4>
 
-            </g:form>
-        </td>
-    </div>
-</div>
+                        </div>
+
+                        <g:form resource="${this.carnet}" method="DELETE">
+                            <div class="row mb-3" style="margin: 60px">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <g:link class="btn btn-outline-secondary" action="edit" resource="${this.carnet}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="btn btn-outline-danger" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                                    </div>
+                                </div>
+                            </div>
+                        </g:form>
+                    </div>
+                </div>
+            </div>
+            <!-- Second Column -->
+            <div class="col-lg-8 col-xlg-9 col-md-7">
+                <div class="card">
+                    <div class="card-footer text-muted d-flex flex-column">
+                        <!-- Your existing content goes here -->
+                        <strong class="badge bg-secondary mb-2">Prénom 🧑‍⚕️</strong>
+                        <p class="text-muted text-center">
+                            <strong>${carnet.fname}</strong>
+                        </p>
+
+                        <strong class="badge bg-secondary mb-2">Nom 🏥</strong>
+                        <p class="text-muted text-center">
+                            <strong>${carnet.lname}</strong>
+                        </p>
+
+                        <strong class="badge bg-secondary mb-2 p-t-30">Téléphone 📝</strong>
+                        <p class="text-muted text-center">
+                            <strong>${carnet.tel}</strong>
+                        </p>
+
+                        <g:set var="today" value="${java.time.LocalDate.now()}" />
+                        <g:set var="birthdate" value="${carnet.dob.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate()}" />
+                        <g:set var="age" value="${java.time.Period.between(birthdate, today).getYears()}" />
+
+                        <!-- Display the age -->
+                        <strong class="badge bg-secondary mb-2">Age 🎂</strong>
+                        <p class="text-muted text-center">
+                            <strong>${age}</strong>
+                        </p>
+
+                        <strong class="badge bg-secondary mb-2 p-t-30">Poids ⚖️</strong>
+                        <p class="text-muted text-center">
+                            <strong>${carnet.weight} kgs</strong>
+                        </p>
+
+                        <strong class="badge bg-secondary mb-2 p-t-30">Taille 📏</strong>
+                        <p class="text-muted text-center">
+                            <strong>${carnet.height} mètres</strong>
+                        </p>
+
+
+                        <strong class="badge bg-secondary mb-2 p-t-30">Pathologies 🩹</strong>
+                        <p class="text-muted text-center">
+                            <strong>
+                                <g:each in="${carnet.consultations}" var="consultation">
+                                    <g:link controller="consultation" action="show" id="${consultation.id}">
+                                        <span>${consultation.note}</span>
+                                    </g:link>
+                                </g:each>
+                            </strong>
+                        </p>
+
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+
+
+        <!-- Modal for displaying images -->
+        <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document"> <!-- Added modal-lg for larger width -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body text-center"> <!-- Center the content -->
+                        <img src="" alt="Image Preview" id="imagePreview" class="img-fluid mx-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Include jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        <!-- Include Bootstrap JS (make sure it comes after jQuery) -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <script>
+            function openImageModal(src) {
+                $('#imagePreview').attr('src', src);
+                $('#imageModal').modal('show');
+            }
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('[data-toggle="modal"]').modal();
+            });
+        </script>
+
+
+
 
 </body>
 </html>
