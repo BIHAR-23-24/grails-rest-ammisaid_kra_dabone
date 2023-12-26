@@ -83,7 +83,67 @@ class ConsultationController {
         }
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_AUX'])
+    def edit(Long id) {
+        // Retrieve the consultation for editing
+        def consultation = consultationService.get(id)
+        respond consultation
+    }
 
+    @Secured(['ROLE_ADMIN','ROLE_AUX'])
+    def update(Consultation consultation) {
+        if (consultation == null) {
+            notFound()
+            return
+        }
+
+        try {
+            // Handle pathologies
+            String[] pathologyIds = params.pathologies as String[]
+            List<Pathology> pathologies = Pathology.findAll {
+                id in pathologyIds.collect { it as Long }
+            }
+            consultation.pathologies = pathologies
+
+            // Initialize note if null
+            consultation.note = consultation.note ?: new Note()
+
+            // Handle description
+            consultation.note.description = params.description
+
+            // Handle files
+            MultipartFile[] files = request.getFileMap().values().toArray(new MultipartFile[0])
+
+            // Initialize consultation.note.files if null
+            consultation.note.files = consultation.note.files ?: []
+
+            files.each { file ->
+                // Save file details in CustomFile without storing the content in the database
+                CustomFile customFile = new CustomFile(name: file.originalFilename)
+                consultation.note.files.add(customFile)
+                // You can choose to save the file to the filesystem or storage here if needed
+                // You may want to implement this logic based on your requirements
+            }
+
+            // Set the Carnet
+            Long carnetId = params.carnet?.id as Long
+            Carnet carnet = Carnet.get(carnetId)
+            consultation.carnet = carnet
+
+            consultationService.save(consultation)
+        } catch (ValidationException e) {
+            respond consultation.errors, view: 'create'
+            return
+        }
+
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.created.message', args: [message(code: 'consultation.label', default: 'Consultation'), consultation.id])
+                redirect consultation
+            }
+            '*' { respond consultation, [status: CREATED] }
+        }
+    }
 
     def delete(Long id) {
         if (id == null) {

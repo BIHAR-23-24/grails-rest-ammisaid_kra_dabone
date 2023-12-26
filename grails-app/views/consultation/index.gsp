@@ -86,10 +86,20 @@
                             <td>
 
                                     <fieldset class="buttons">
-                                        <!-- Edit Link -->
+                                        <!-- Edit Link
 
 
                                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">
+                                            Modifier
+                                        </button>
+-->
+                                        <button
+                                                type="button"
+                                                class="btn btn-success btn-edit"
+                                                data-toggle="modal"
+                                                data-target="#editModal"
+                                                data-consultation-id="${consultation.id}"
+                                        >
                                             Modifier
                                         </button>
 
@@ -165,9 +175,22 @@
                         Êtes-vous sûr de vouloir modifier cette consultation ?
                     </div>
                     <div class="modal-footer">
+                    <!--
+                        <g:form resource="${this.consultation}"  method="DELETE">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Modifier</button>
+                            <g:link class="btn btn-success" action="edit" resource="${this.consultation}">
+                                <g:message code="default.button.edit.label" default="Edit" />
+                            </g:link>
 
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Modifier</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        </g:form>
+Edit Modal -->
+                        <g:form resource="${this.consultation}" controller="consultation" action="edit">
+                            <input type="hidden" id="consultationIdEdit" name="id" value="" />
+                            <button type="submit" class="btn btn-success">Modifier</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        </g:form>
+
 
 
                     </div>
@@ -236,6 +259,15 @@
             $('.btn-delete').on('click', function () { <!-- Use '.btn-delete' as the selector -->
                 var consultationId = $(this).attr('data-consultation-id');
                 $('#consultationId').val(consultationId);
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('.btn-edit').on('click', function () { <!-- Use '.btn-delete' as the selector -->
+                var consultationId = $(this).attr('data-consultation-id');
+                $('#consultationIdEdit').val(consultationId);
             });
         });
     </script>
