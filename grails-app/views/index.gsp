@@ -38,7 +38,7 @@
 
         <!-- Animate.css -->
 
-        <asset:stylesheet src="animate.css"/>
+        <asset:stylesheet src="stylesAccueil.css"/>
         <!-- Flexslider -->
 
 
