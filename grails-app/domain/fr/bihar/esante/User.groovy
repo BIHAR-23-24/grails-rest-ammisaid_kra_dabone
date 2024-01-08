@@ -3,7 +3,8 @@ package fr.bihar.esante
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import grails.compiler.GrailsCompileStatic
-import grails.rest.*
+import grails.plugin.springsecurity.SpringSecurityService
+
 
 @GrailsCompileStatic
 @EqualsAndHashCode(includes='username')

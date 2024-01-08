@@ -12,42 +12,45 @@
 <body>
 
         <div id="layoutSidenav_content"style="padding-left:20px;padding-right: 20px">
-                    <div class="card mb-5">
-                        <div class="card-header">
-                            <div class="row">
-                                <div class="col-6">
-                                    <g:link class="btn btn-outline-secondary" action="create" resource="${this.user}">
-                                        <i class="fas fa-table me-1"></i>
-                                        <g:message code="default.button.create.label" default="Create" />
-                                    </g:link>
-                                </div>
-                                <div class="col-6">
-                                    All Users
-                                </div>
+                <div class="card mb-5">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-6">
+                                <g:link class="btn btn-outline-secondary" action="create" resource="${this.user}">
+                                    <i class="fas fa-table me-1"></i>
+                                    <g:message code="default.button.create.label" default="Create" />
+                                </g:link>
+                            </div>
+                            <div class="col-6">
+                                All Users
                             </div>
                         </div>
-
-                        <div class="card-body">
-                            <table id="datatablesSimple">
-                                <g:each in="${User.list()}" var="user">
-                                    <tr>
-                                        <th scope="row">${user.id}</th>
-                                        <td>
-                                            <g:link controller="user" action="show" id="${user.id}">
-                                            %{--${user.username}--}%
-                                                <g:fieldValue bean="${user}" field="username" />
-                                            </g:link>
-                                        </td>
-                                        <td>
-                                            <g:fieldValue bean="${user}" field="email" />
-                                        </td>
-                                        <td>${user.getAuthorities()*.authority.join(', ')}</td>
-                                    </tr>
-                                </g:each>
-
-                            </table>
-                        </div>
                     </div>
+
+                    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <g:each in="${User.list()}" var="user">
+                                <tr>
+                                    <th scope="row">${user.id}</th>
+                                    <td>
+                                        <g:link controller="user" action="show" id="${user.id}" style="color: #007bff; text-decoration: none;">
+                                            <g:fieldValue bean="${user}" field="username" />
+                                        </g:link>
+                                    </td>
+                                    <td>
+                                        <span style="color: #28a745;">
+                                            <g:fieldValue bean="${user}" field="email" />
+                                        </span>
+                                    </td>
+                                    <td style="font-weight: bold;">
+                                        ${user.getAuthorities()*.authority.join(', ')}
+                                    </td>
+                                </tr>
+                            </g:each>
+
+                        </table>
+                    </div>
+                </div>
         </div>
 
 
