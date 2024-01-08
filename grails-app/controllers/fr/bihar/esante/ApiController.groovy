@@ -4,7 +4,7 @@ import grails.converters.JSON
 import grails.converters.XML
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured('ROLE_ADMIN')
+@Secured('ADMIN')
 class ApiController {
 
     UserService userService
@@ -123,7 +123,7 @@ class ApiController {
                     user_toCreate.properties = post_params
 
                     def role = Role.get(post_params.role)
-                    if (role == Role.findByAuthority('ROLE_PATIENT')) {
+                    if (role == Role.findByAuthority('PATIENT')) {
                         user_toCreate.carnet = new Carnet()
                         user_toCreate.carnet.fname = "A renseigner"
                         user_toCreate.carnet.lname = "A renseigner"

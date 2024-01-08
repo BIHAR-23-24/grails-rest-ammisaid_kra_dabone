@@ -4,14 +4,14 @@ import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
-@Secured('ROLE_ADMIN')
+@Secured('ADMIN')
 class PathologyController {
 
     PathologyService pathologyService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    @Secured(['ROLE_ADMIN','ROLE_AUX'])
+    @Secured(['ADMIN','AUXILIAIRE'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond pathologyService.list(params), model:[pathologyCount: pathologyService.count()]
