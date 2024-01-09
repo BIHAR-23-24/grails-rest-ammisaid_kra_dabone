@@ -129,7 +129,10 @@ a {
         <input class="pass" type="password" align="center" name="${passwordParameter ?: 'password'}" id="password" required placeholder="Password">
 
         <input class="submit" type="submit" align="center" value="${message(code: 'springSecurity.login.button')}">
-        <p class="forgot" align="center"><a href="#">Forgot Password?</p>
+        <p class="forgot" align="center">
+            <a href="#"/>
+            Forgot Password?
+        </p>
     </form>
 
     <div class="message">
