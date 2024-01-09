@@ -49,8 +49,8 @@
 
         <a class="navbar-brand ps-3" href="#">E-santé</a>
         <!-- Sidebar Toggle-->
-        <div style="color:azure" id="userInfo">
-            hello: ${loggedInUser?.username}
+        <div style="color:azure;margin-left:500px;font-weight: bold; " id="userInfo">
+            <span>Hello ${loggedInUser?.username} !</span>
         </div>
         <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">

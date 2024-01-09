@@ -7,20 +7,20 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile
 import org.springframework.web.multipart.MultipartFile
 
 
-@Secured('ADMIN')
+@Secured('ROLE_ADMIN')
 class ConsultationController {
 
     ConsultationService consultationService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    @Secured(['ADMIN','AUXILIAIRE'])
+    @Secured(['ROLE_ADMIN','ROLE_AUX'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond consultationService.list(params), model:[consultationCount: consultationService.count()]
     }
 
-    @Secured(['ADMIN','AUXILIAIRE'])
+    @Secured(['ROLE_ADMIN','ROLE_AUX'])
     def show(Long id) {
         respond consultationService.get(id)
     }
@@ -86,7 +86,7 @@ class ConsultationController {
         }
     }
 
-    @Secured(['ADMIN','AUXILIAIRE'])
+    @Secured(['ROLE_ADMIN','ROLE_AUX'])
     def edit(Long id) {
         // Retrieve the consultation for editing
         def consultation = consultationService.get(id)

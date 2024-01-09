@@ -5,7 +5,7 @@ import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
 
-@Secured('ADMIN')
+@Secured('ROLE_ADMIN')
 class UserController {
 
     UserService userService
@@ -35,7 +35,7 @@ class UserController {
 
         try {
             def role = Role.get(params.role)
-            if (role == Role.findByAuthority('PATIENT'))
+            if (role == Role.findByAuthority('ROLE_PATIENT'))
             {
                 user.carnet = new Carnet()
                 user.carnet.fname = "A renseigner"

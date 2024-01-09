@@ -4,7 +4,7 @@ import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
-@Secured('ADMIN')
+@Secured('ROLE_ADMIN')
 class NoteController {
 
     NoteService noteService
