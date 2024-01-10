@@ -1,13 +1,5 @@
 <sec:ifNotLoggedIn>
 
-
-
-
-
-
-
-
-
     <!DOCTYPE html>
 
     <html class="no-js">
@@ -38,7 +30,7 @@
 
         <!-- Animate.css -->
 
-        <asset:stylesheet src="stylesAccueil.css"/>
+        <asset:stylesheet src="animate.css"/>
         <!-- Flexslider -->
 
 
@@ -218,11 +210,12 @@
         </section>
         <!-- #fh5co-header -->
 
-        
-        <section id="fh5co-hero" class="js-fullheight" data-next="yes">
+
+        <section id="fh5co-hero" class="js-fullheight" data-next="yes" >
         <img class="background-img" src="${resource(dir: 'images', file: 'medical-4510408_1920.png')}" alt="Background Image" width="1900" height="750">
 
-            <div class="fh5co-overlay"></div>
+
+        <div class="fh5co-overlay"></div>
             <div class="container">
                 <div class="fh5co-intro js-fullheight">
                     <div class="fh5co-intro-text">
