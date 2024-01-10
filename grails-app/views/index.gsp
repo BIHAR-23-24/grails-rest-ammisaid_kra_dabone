@@ -29,7 +29,7 @@
 
         <!-- Animate.css -->
 
-        <asset:stylesheet src="stylesAccueil.css"/>
+        <asset:stylesheet src="animate.css"/>
         <!-- Flexslider -->
 
 
@@ -206,8 +206,12 @@
         <!-- #fh5co-header -->
 
 
+<<<<<<< HEAD
         <section id="fh5co-hero" class="js-fullheight" style="background-image: url(${resource(dir: 'images', file: 'Designanstitre.png')});" data-next="yes">
         <img class="background-img" src="${resource(dir: 'images', file: 'medical-4510408_1920.png')}" alt="Background Image" width="1900" height="750">
+=======
+        <section id="fh5co-hero" class="js-fullheight" data-next="yes" style="background-image: url(${resource(dir: 'images', file: 'medical-4510408_1920.png')});" >
+>>>>>>> 3d056fa82a780101b9947099d72c72d0fc1dbe5a
 
         <div class="fh5co-overlay"></div>
             <div class="container">
