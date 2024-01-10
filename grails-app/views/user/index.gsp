@@ -23,15 +23,20 @@
                             </div>
                             <div class="col-6">
                                 All Users
-                            </div>
+                              </div>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        <table id="datatablesSimple">
+                        <table class="table align-middle mb-0 bg-white">
+                            <thead class="bg-light">
+                            <th scope="row">Name</th>
+                            <th scope="row">Email</th>
+                            <th scope="row">Role</th>
+                            </thead>
                             <g:each in="${User.list()}" var="user">
+
                                 <tr>
-                                    <th scope="row">${user.id}</th>
                                     <td>
                                         <g:link controller="user" action="show" id="${user.id}" style="color: #007bff; text-decoration: none;">
                                             <g:fieldValue bean="${user}" field="username" />
@@ -52,7 +57,6 @@
                     </div>
                 </div>
         </div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>

@@ -5,6 +5,8 @@
 <%
     def springSecurityService = applicationContext.getBean('springSecurityService')
     def loggedInUser = springSecurityService?.principal
+    def roles = springSecurityService.getPrincipal().getAuthorities()
+
 %>
 
 <sec:ifLoggedIn>
@@ -21,11 +23,8 @@
         <asset:stylesheet src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"/>
         <asset:stylesheet src="styles.css"/>
         <asset:javascript src="script2Ad.js"/>
-
         <g:layoutHead/>
-
         <style>
-
     #layoutSidenav_content {
         position: relative;
         overflow: hidden;
@@ -37,106 +36,97 @@
         width: 100%;
         height: 100%; /* Adjust the height as needed */
     }
-
-
-
-
         </style>
+
     </head>
     <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <nav class="sb-topnav navbar navbar-expand navbar-primary bg-primary-light shadow">
         <!-- Navbar Brand-->
 
-        <a class="navbar-brand ps-3" href="#">E-santé</a>
+        <a class="navbar-brand ps-3" href="#">eHealth</a>
         <!-- Sidebar Toggle-->
-        <div style="color:azure;margin-left:500px;font-weight: bold; " id="userInfo">
-            <span>Hello ${loggedInUser?.username} !</span>
+        <div style="color:dodgerblue;font-weight: bold;margin-left: 100px " id="userInfo">
+            <i>Hello ${loggedInUser?.username} !</i>
         </div>
-        <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-            <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-            </div>
-        </form>
-        <!-- Navbar-->
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <g:link controller="logout" action="index"><button type="button" class="dropdown-item">Logout</button></g:link>
-                </ul>
-            </li>
-        </ul>
+        <g:link controller="logout" action="index"> <button type="button" class="btn btn-outline-danger" style="margin-left:950px">Logout</button></g:link>
+
     </nav>
+
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-navbar-light" id="sidenavAccordion" style="background-color: #A0E9FF;">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Accueil</div>
+                        <div class="sb-sidenav-menu-heading">Home</div>
                         <a class="nav-link" href="">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Accueil
+                            Home
                         </a>
-                        <div class="sb-sidenav-menu-heading">Menu</div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"> <i class="fas fa-book-open"></i></i></div>
-                            Utilisateurs
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
 
-                                <g:link controller="user" action="create" class="nav-link">Ajouter un utilisateur </g:link>
-                                <g:link controller="user" action="index" class="nav-link">Liste des utilisateurs </g:link>
-                            </nav>
-                        </div>
+                        <sec:ifLoggedIn>
+                            <g:if test="${roles.any { it.authority == 'ROLE_ADMIN' }}">
+                                <div class="sb-sidenav-menu-heading">Menu</div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                    <div class="sb-nav-link-icon">
+                                        <i class="fas fa-book-open"></i>
+                                    </div>
+                                    Users
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                            </g:if>
+                            <g:if test="${roles.any { it.authority in ['ROLE_ADMIN', 'ROLE_DOC'] }}">
+                                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
+
+                                        <g:link controller="user" action="create" class="nav-link">Add User</g:link>
+                                        <g:link controller="user" action="index" class="nav-link">All Users</g:link>
+                                    </nav>
+                                </div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                    Consultations
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
+
+                                        <g:link controller="consultation" action="create" class="nav-link">Create Consultations </g:link>
+                                        <g:link controller="consultation" action="index" class="nav-link">All Consultations </g:link>
+                                    </nav>
+                                </div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePagess" aria-expanded="false" aria-controls="collapsePages">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                    Carnet
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapsePagess" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <g:link controller="carnet" action="create" class="nav-link">Create Notebook</g:link>
+                                        <g:link controller="carnet" action="index" class="nav-link">All Notebooks</g:link>
+                                    </nav>
+                                </div>
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePagesss" aria-expanded="false" aria-controls="collapsePages">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                    Pathologie
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapsePagesss" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <g:link controller="pathology" action="create" class="nav-link">Create Pathology </g:link>
+                                        <g:link controller="pathology" action="index" class="nav-link">All Pathologies </g:link>
+                                    </nav>
+                                </div>
+                            </g:if>
+
+                        </sec:ifLoggedIn>
 
 
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                            Consultations
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
+                    %{--                        we check the current user role if it is not an admin or doc we hide the Users dropdown--}%
 
-                                <g:link controller="consultation" action="create" class="nav-link">Créer une Consultations </g:link>
-                                <g:link controller="consultation" action="index" class="nav-link">Liste des Consultations </g:link>
-                            </nav>
-                        </div>
-
-
-
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePagess" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                            Carnet
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapsePagess" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <g:link controller="carnet" action="create" class="nav-link">Créer un carnet </g:link>
-                                <g:link controller="carnet" action="index" class="nav-link">Liste des Carnets </g:link>
-                            </nav>
-                        </div>
-
-
-
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePagesss" aria-expanded="false" aria-controls="collapsePages">
-                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                            Pathologie
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="collapsePagesss" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <g:link controller="pathology" action="create" class="nav-link">Créer une Pathology </g:link>
-                                <g:link controller="pathology" action="index" class="nav-link">Liste des Pathology </g:link>
-                            </nav>
-                        </div>
 
                     </div>
                 </div>
+
                 <div class="sb-sidenav-footer">
                     <div class="small">Vous êtes connecté(e)s</div>
                     E-santé
@@ -145,18 +135,9 @@
         </div>
         <div id="layoutSidenav_content">
             <main>
-
-
                 <g:layoutBody/>
-
-
-
-
-
-
-
-
             </main>
+
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">

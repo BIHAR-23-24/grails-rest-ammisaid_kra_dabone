@@ -46,6 +46,12 @@ class BootStrap {
                 userInstance.carnet = carnetInstance
                 userInstance.save(flush: true)
         }
+        ["trevor", "michel", "franklin"].each {
+            String name ->
+                def userInstance = new User(username: name, password: "password", email: "$name@etu.estia.fr").save()
+                UserRole.create(userInstance, Role.findByAuthority('ROLE_DOC'), true)
+                userInstance.save(flush: true)
+        }
 
     }
     def destroy = {

@@ -207,7 +207,9 @@
 
 
         <section id="fh5co-hero" class="js-fullheight" style="background-image: url(${resource(dir: 'images', file: 'Designanstitre.png')});" data-next="yes">
-            <div class="fh5co-overlay"></div>
+        <img class="background-img" src="${resource(dir: 'images', file: 'medical-4510408_1920.png')}" alt="Background Image" width="1900" height="750">
+
+        <div class="fh5co-overlay"></div>
             <div class="container">
                 <div class="fh5co-intro js-fullheight">
                     <div class="fh5co-intro-text">
