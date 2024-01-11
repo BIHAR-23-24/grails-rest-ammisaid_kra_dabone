@@ -3,70 +3,75 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'consultation.label', default: 'Consultation')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
-    </head>
-    <body>
+<head>
+    <meta name="layout" content="main" />
+    <g:set var="entityName" value="${message(code: 'consultation.label', default: 'Consultation')}" />
+    <title><g:message code="default.create.label" args="[entityName]" /></title>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
-    <div class="row justify-content-center">
-        <div class="col-lg-7">
-            <div class="card shadow-lg border-0 rounded-lg mt-5">
-                <div class="card-body">
-                    <h1 class="text-center mb-4">Créer une consultation</h1>
+</head>
+<body>
+    <div id="edit-user" class="content scaffold-edit" role="main">
+        <main>
+        <div class="container">
 
-                    <div class="mx-auto"> <!-- Centering the form -->
-                        <g:form resource="${this.consultation}" controller="consultation" action="save" method="POST" enctype="multipart/form-data">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                        <div class="card-body">
+                            <h1 class="text-center mb-4">Create a consultation</h1>
 
-                            <div class="form-group">
-                                <!-- Select Patient Carnet -->
-                                <label for="carnet">Sélectionnez le Carnet du Patient:</label>
-                                <g:select name="carnet.id" from="${Carnet.list()}" optionKey="id" optionValue="fname" class="form-control mb-3" />
+                            <div class="mx-auto"> <!-- Centering the form -->
+                                <g:form resource="${this.consultation}" controller="consultation" action="save" method="POST" enctype="multipart/form-data">
+
+                                    <div class="form-group">
+                                        <!-- Select Patient Carnet -->
+                                        <label for="carnet">Select the patient carnet:</label>
+                                        <g:select name="carnet.id" from="${Carnet.list()}" optionKey="id" optionValue="fname" class="form-control mb-3" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <!-- Observation -->
+                                        <label for="description">Comments:</label>
+                                        <g:textArea name="description" id="description" class="form-control mb-3"></g:textArea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <!-- File upload input -->
+                                        <label for="files">Choose files:</label>
+                                        <input type="file" id="files" name="files" accept=".pdf, .doc, .docx, .png, .jpg, .jpeg" class="form-control mb-3" multiple>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <!-- Search Pathologies -->
+                                        <label for="pathologySearch">Search for pathologies:</label>
+                                        <input type="text" id="pathologySearch" class="form-control mb-3" placeholder="Search Pathologies">
+                                        <ul id="pathologyList" class="list-group"></ul>
+                                    </div>
+
+                                    <div id="selectedPathologies" class="alert alert-info mt-3">
+                                        <!-- Bootstrap alert styling, you can customize this further -->
+                                        The selected pathologies will be displayed here:
+                                    </div>
+
+                                    <input type="hidden" name="pathologies" id="pathologies" />
+
+                                    <!-- Fields for pathologies, if needed -->
+
+                                    <div class="mt-3">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                    </div>
+
+                                </g:form>
                             </div>
 
-                            <div class="form-group">
-                                <!-- Observation -->
-                                <label for="description">Observations:</label>
-                                <g:textArea name="description" id="description" class="form-control mb-3"></g:textArea>
-                            </div>
-
-                            <div class="form-group">
-                                <!-- File upload input -->
-                                <label for="files">Choisir des fichiers:</label>
-                                <input type="file" id="files" name="files" accept=".pdf, .doc, .docx, .png, .jpg, .jpeg" class="form-control mb-3" multiple>
-                            </div>
-
-                            <div class="form-group">
-                                <!-- Search Pathologies -->
-                                <label for="pathologySearch">Rechercher des pathologies:</label>
-                                <input type="text" id="pathologySearch" class="form-control mb-3" placeholder="Search Pathologies">
-                                <ul id="pathologyList" class="list-group"></ul>
-                            </div>
-
-                            <div id="selectedPathologies" class="alert alert-info mt-3">
-                                <!-- Bootstrap alert styling, you can customize this further -->
-                                Les pathologies sélectionnées seront affichées ici:
-                            </div>
-
-                            <input type="hidden" name="pathologies" id="pathologies" />
-
-                            <!-- Fields for pathologies, if needed -->
-
-                            <div class="mt-3">
-                                <button type="submit" class="btn btn-primary">Enregistrer</button>
-                                <button type="reset" class="btn btn-secondary">Réinitiliser</button>
-                            </div>
-
-                        </g:form>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
-
 
     <script type="text/javascript">
         console.log('OK');
@@ -145,7 +150,7 @@
             document.getElementById('pathologies').value = Array.from(selectedPathologies).join(',');
 
             // Return the selected keys as an array
-           // return Array.from(selectedPathologies);
+            // return Array.from(selectedPathologies);
         }
         // Attach the filterPathologies function to the input event
         document.getElementById('pathologySearch').addEventListener('input', filterPathologies);
@@ -153,5 +158,5 @@
 
 
 
-    </body>
+</body>
 </html>

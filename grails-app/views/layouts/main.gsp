@@ -57,11 +57,7 @@
             <nav class="sb-sidenav accordion sb-navbar-light" id="sidenavAccordion" style="background-color: #A0E9FF;">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">Home</div>
-                        <a class="nav-link" href="">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Home
-                        </a>
+
 
                         <sec:ifLoggedIn>
                             <g:if test="${roles.any { it.authority == 'ROLE_ADMIN' }}">

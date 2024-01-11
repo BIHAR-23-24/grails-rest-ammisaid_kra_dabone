@@ -36,8 +36,8 @@
                 <thead>
                 <tr>
                     <th>N</th>
-                    <th>Fname</th>
-                    <th>Lname</th>
+                    <th>First name</th>
+                    <th>Last name</th>
                     <th>Dob</th>
                     <th>Tel</th>
                     <th>Weight</th>
@@ -103,7 +103,7 @@
 
 
                                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">
-                                            Modifier
+                                            Edith
                                         </button>
 -->
                                 <button
@@ -113,7 +113,7 @@
                                         data-target="#editModal"
                                         data-consultation-id="${carnet.id}"
                                 >
-                                    Modifier
+                                    Edith
                                 </button>
 
                                 <!-- Delete Button (in a modal) -->
@@ -124,7 +124,7 @@
                                         data-target="#deleteModal"
                                         data-consultation-id="${carnet.id}"
                                 >
-                                    Supprimer
+                                    Delete
                                 </button>
 
                             </fieldset>
@@ -142,21 +142,21 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Supprimer le carnet</h5>
+                    <h5 class="modal-title" id="deleteModalLabel">Delete the carnet</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Êtes-vous sûr de vouloir supprimer ce carnet ?
+                   Are you sure you want to delete this carnet ?
                 </div>
 
                 <div class="modal-footer">
 
                     <g:form resource="${this.carnet}" controller="carnet" action="delete" method="DELETE">
                         <input type="hidden" id="consultationId" name="id" value="" />
-                        <button type="submit" class="btn btn-danger">Supprimer</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     </g:form>
 
                 </div>
@@ -171,29 +171,29 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Modifier la carnet</h5>
+                    <h5 class="modal-title" id="editModalLabel">Edit the carnet</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Êtes-vous sûr de vouloir modifier ce carnet ?
+                    Are you sure you want to modify this carnet ?
                 </div>
                 <div class="modal-footer">
                 <!--
                 <g:form resource="${this.carnet}"  method="DELETE">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Modifier</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Edit</button>
                     <g:link class="btn btn-success" action="edit" resource="${this.carnet}">
                         <g:message code="default.button.edit.label" default="Edit" />
                     </g:link>
 
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </g:form>
 Edit Modal -->
                     <g:form resource="${this.carnet}" controller="carnet" action="edit">
                         <input type="hidden" id="consultationIdEdit" name="id" value="" />
                         <button type="submit" class="btn btn-success">Modifier</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     </g:form>
 
                 </div>
