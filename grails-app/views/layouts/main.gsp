@@ -78,7 +78,7 @@
                                 </div>
                             </g:if>
 
-                            
+
                             <g:if test="${roles.any { it.authority in ['ROLE_ADMIN', 'ROLE_DOC'] }}">
 
                                 <a class="nav-link collapsed"  data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -93,18 +93,22 @@
                                         <g:link controller="consultation" action="index" class="nav-link">All Consultations </g:link>
                                     </nav>
                                 </div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePagess" aria-expanded="false" aria-controls="collapsePages">
+                            </g:if>
+                            <g:if test="${roles.any { it.authority in ['ROLE_ADMIN', 'ROLE_DOC'] }}">
+                                <a class="nav-link collapsed"  data-bs-toggle="collapse" data-bs-target="#collapsePagess" aria-expanded="false" aria-controls="collapsePages">
                                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                    Carnet
+                                    Medical Records
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
                                 <div class="collapse" id="collapsePagess" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                     <nav class="sb-sidenav-menu-nested nav">
-                                        <g:link controller="carnet" action="create" class="nav-link">Create Notebook</g:link>
-                                        <g:link controller="carnet" action="index" class="nav-link">All Notebooks</g:link>
+                                        <g:link controller="carnet" action="create" class="nav-link">Create Health Record</g:link>
+                                        <g:link controller="carnet" action="index" class="nav-link">All Health Records</g:link>
                                     </nav>
                                 </div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePagesss" aria-expanded="false" aria-controls="collapsePages">
+                            </g:if>
+                            <g:if test="${roles.any { it.authority in ['ROLE_ADMIN', 'ROLE_DOC'] }}">
+                                <a class="nav-link collapsed"  data-bs-toggle="collapse" data-bs-target="#collapsePagesss" aria-expanded="false" aria-controls="collapsePages">
                                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                     Pathologie
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>

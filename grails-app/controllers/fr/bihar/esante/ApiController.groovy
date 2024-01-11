@@ -7,10 +7,12 @@ import grails.plugin.springsecurity.annotation.Secured
 @Secured('ROLE_ADMIN')
 class ApiController {
 
+//    injecting the needed services user services
     UserService userService
     ConsultationService consultationService
     NoteService noteService
 
+   // encapsulate the user request params check see if user exists to procede to modifie or delete it or get it
     def req_check_get_user(params) {
         if (!params.id) //check if the params has an id
             return response.status = 400 //case no id 400 code is sent
@@ -19,7 +21,7 @@ class ApiController {
             return response.status = 404 // 404 not found code sent
         else return userInstance
     }
-
+//check request for consultation
     def req_check_get_consultation(params) {
         if (!params.id) //check if the params has an id
             return response.status = 400 //case no id 400 code is sent
@@ -29,13 +31,14 @@ class ApiController {
             return response.status = 404 // 404 not found code sent
         else return consultInstance
     }
-
+//check of messing params and render 400
     def messing_params_check(params) {
         if (!params)
             return render(status: 400, text: [status: 400, message: "Missing parameters in body"] as JSON)
         else false
     } //400 messing params code as json sent if user didnt sent params if
 
+//check on the content type of the request asee if its json or xml
     def check_req_content_type(request, paramz) {
         if (request.getHeader('Content-Type')) {
             if (request.getHeader('Content-Type').contains("json")) paramz = request.getJSON()
@@ -123,7 +126,7 @@ class ApiController {
                     user_toCreate.properties = post_params
 
                     def role = Role.get(post_params.role)
-                    if (role == Role.findByAuthority('PATIENT')) {
+                    if (role == Role.findByAuthority('ROLE_PATIENT')) {
                         user_toCreate.carnet = new Carnet()
                         user_toCreate.carnet.fname = "A renseigner"
                         user_toCreate.carnet.lname = "A renseigner"
