@@ -101,7 +101,7 @@
                                 <label for="bloodType">Blood Type</label>
                                 <div class="form-floating mb-3">
                                     <select  name="bloodType" id="bloodType" class="form-control" >
-                                        <option>Veuillez selectionner un groupe sanguin</option>
+                                        <option>Please select a blood type</option>
                                         <option value="A+">A+</option>
                                         <option value="A-">A-</option>
                                         <option value="B+">B+</option>
