@@ -70,17 +70,17 @@
                 <div class="card">
                     <div class="card-footer text-muted d-flex flex-column">
                         <!-- Your existing content goes here -->
-                        <strong class="badge bg-secondary mb-2">Prénom 🧑‍⚕️</strong>
+                        <strong class="badge bg-secondary mb-2">First name 🧑‍⚕️</strong>
                         <p class="text-muted text-center">
                             <strong>${carnet.fname}</strong>
                         </p>
 
-                        <strong class="badge bg-secondary mb-2">Nom 🏥</strong>
+                        <strong class="badge bg-secondary mb-2">Last name 🏥</strong>
                         <p class="text-muted text-center">
                             <strong>${carnet.lname}</strong>
                         </p>
 
-                        <strong class="badge bg-secondary mb-2 p-t-30">Téléphone 📝</strong>
+                        <strong class="badge bg-secondary mb-2 p-t-30">Telephone 📝</strong>
                         <p class="text-muted text-center">
                             <strong>${carnet.tel}</strong>
                         </p>
@@ -95,12 +95,12 @@
                             <strong>${age}</strong>
                         </p>
 
-                        <strong class="badge bg-secondary mb-2 p-t-30">Poids ⚖️</strong>
+                        <strong class="badge bg-secondary mb-2 p-t-30">Weight ⚖️</strong>
                         <p class="text-muted text-center">
                             <strong>${carnet.weight} kgs</strong>
                         </p>
 
-                        <strong class="badge bg-secondary mb-2 p-t-30">Taille 📏</strong>
+                        <strong class="badge bg-secondary mb-2 p-t-30">Height 📏</strong>
                         <p class="text-muted text-center">
                             <strong>${carnet.height} mètres</strong>
                         </p>
