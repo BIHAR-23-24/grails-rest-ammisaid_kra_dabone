@@ -50,14 +50,14 @@
                                         <div class="form-floating mb-3">
                                             <g:textField class="form-control" id="fname" type="text"
                                                          placeholder="fname" name="fname" />
-                                            <label for="fname">fname</label>
+                                            <label for="fname">First name</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6" >
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id="lname" type="text"
                                                          placeholder="lname" name="lname" required/>
-                                            <label for="lname">lname</label>
+                                            <label for="lname">Last name</label>
                                         </div>
                                     </div>
                                 <div class="row">
