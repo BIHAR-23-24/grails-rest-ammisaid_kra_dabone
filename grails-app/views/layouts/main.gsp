@@ -66,23 +66,26 @@
                         <sec:ifLoggedIn>
                             <g:if test="${roles.any { it.authority == 'ROLE_ADMIN' }}">
                                 <div class="sb-sidenav-menu-heading">Menu</div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <a class="nav-link collapsed" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                     <div class="sb-nav-link-icon">
                                         <i class="fas fa-book-open"></i>
                                     </div>
                                     Users
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 </a>
-                            </g:if>
-                            <g:if test="${roles.any { it.authority in ['ROLE_ADMIN', 'ROLE_DOC'] }}">
-                                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                    <nav class="sb-sidenav-menu-nested nav">
 
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
                                         <g:link controller="user" action="create" class="nav-link">Add User</g:link>
                                         <g:link controller="user" action="index" class="nav-link">All Users</g:link>
                                     </nav>
                                 </div>
-                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                            </g:if>
+
+                            
+                            <g:if test="${roles.any { it.authority in ['ROLE_ADMIN', 'ROLE_DOC'] }}">
+
+                                <a class="nav-link collapsed"  data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                     Consultations
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
