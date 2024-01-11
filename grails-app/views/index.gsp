@@ -12,6 +12,7 @@
         <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
         <meta name="author" content="FREEHTML5.CO" />
 
+
         <meta property="og:title" content=""/>
         <meta property="og:image" content=""/>
         <meta property="og:url" content=""/>
@@ -31,6 +32,8 @@
 
         <asset:stylesheet src="animate.css"/>
         <!-- Flexslider -->
+
+
 
 
 
@@ -89,6 +92,7 @@
             float: left;
             margin: 5px;
         }
+
 
 
         #colour-variations li a[data-theme="style"] {
@@ -172,10 +176,11 @@
         <script src="js/modernizr-2.6.2.min.js"></script>
         <!-- FOR IE9 below -->
         <!--[if lt IE 9]>
-<script src="js/respond.min.js"></script>
-<![endif]-->
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
 
     </head>
+
 
 
     <body>
@@ -206,12 +211,7 @@
         <!-- #fh5co-header -->
 
 
-<<<<<<< HEAD
-        <section id="fh5co-hero" class="js-fullheight" style="background-image: url(${resource(dir: 'images', file: 'Designanstitre.png')});" data-next="yes">
-        <img class="background-img" src="${resource(dir: 'images', file: 'medical-4510408_1920.png')}" alt="Background Image" width="1900" height="750">
-=======
         <section id="fh5co-hero" class="js-fullheight" data-next="yes" style="background-image: url(${resource(dir: 'images', file: 'medical-4510408_1920.png')});" >
->>>>>>> 3d056fa82a780101b9947099d72c72d0fc1dbe5a
 
         <div class="fh5co-overlay"></div>
             <div class="container">
@@ -248,8 +248,8 @@
 
                             <g:img dir="images" file="image1.jpeg" var="backgroundImage" class="img-responsive" />
                             <div class="fh5co-text">
-                                <h2>Beautiful Sunrise</h2>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
+                                <h2>Monitoring the elderly</h2>
+                                <p>This is a full medical examination, tailored to the patient's age and family history.</p>
                             </div>
                         </a>
                     </div>
@@ -259,8 +259,8 @@
 
                             <g:img dir="images" file="image2.jpeg" var="backgroundImage" class="img-responsive" />
                             <div class="fh5co-text">
-                                <h2>Cute Little Dog</h2>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
+                                <h2>Surgery</h2>
+                                <p> is the part of therapy that involves internal operations or external manoeuvres on tissue</p>
                             </div>
                         </a>
                     </div>
@@ -292,8 +292,8 @@
 
                             <g:img dir="images" file="image6.jpg" var="backgroundImage" class="img-responsive" />
                             <div class="fh5co-text">
-                                <h2>A Big Wave of the Blue Sea</h2>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
+                                <h2>rehabilitation</h2>
+                                <p>A medical speciality focused on restoring the functional capacities and quality of life of patients with disabilities.</p>
                             </div>
                         </a>
                     </div>
@@ -303,8 +303,8 @@
 
                             <g:img dir="images" file="image7.jpg" var="backgroundImage" class="img-responsive" />
                             <div class="fh5co-text">
-                                <h2>Foggy Pine Trees</h2>
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
+                                <h2>Paediatrics</h2>
+                                <p> is a medical speciality that focuses on children from the womb through to late adolescence.</p>
                             </div>
                         </a>
                     </div>
@@ -565,6 +565,7 @@
 
 
 
+
     <script>
         $(function(){
             $('#colour-variations ul').styleSwitcher({
@@ -606,6 +607,7 @@
 
     </body>
     </html>
+
 
 
 </sec:ifNotLoggedIn>
