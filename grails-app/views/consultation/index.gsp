@@ -26,7 +26,7 @@
 
 
                     <div class="col-6">
-                        Toutes les consultations
+                        All consultations
                     </div>
                 </div>
             </div>
@@ -36,11 +36,11 @@
                     <thead>
                     <tr>
                         <th>N</th>
-                        <th>Prénom</th>
-                        <th>Nom</th>
+                        <th>First name</th>
+                        <th>Las name</th>
                         <th>Description</th>
                         <th>Pathologies</th>
-                        <th>Date de consultation</th>
+                        <th>Date of consultation</th>
                         <th>Action</th>
 
 
@@ -100,7 +100,7 @@
                                                 data-target="#editModal"
                                                 data-consultation-id="${consultation.id}"
                                         >
-                                            Modifier
+                                            Update
                                         </button>
 
                                         <!-- Delete Button (in a modal) -->
@@ -111,7 +111,7 @@
                                             data-target="#deleteModal"
                                             data-consultation-id="${consultation.id}"
                                             >
-                                            Supprimer
+                                            Delete
                                         </button>
 
                                     </fieldset>
@@ -134,21 +134,21 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel">Supprimer la consultation</h5>
+                        <h5 class="modal-title" id="deleteModalLabel">Delete consultation</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        Êtes-vous sûr de vouloir supprimer cette consultation ?
+                        Are you sure you want to delete this consultation?
                     </div>
 
                     <div class="modal-footer">
 
                         <g:form resource="${this.consultation}" controller="consultation" action="delete" method="DELETE">
                             <input type="hidden" id="consultationId" name="id" value="" />
-                            <button type="submit" class="btn btn-danger">Supprimer</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         </g:form>
 
 
@@ -166,13 +166,13 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editModalLabel">Modifier la consultation</h5>
+                        <h5 class="modal-title" id="editModalLabel">Udapte consultation</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        Êtes-vous sûr de vouloir modifier cette consultation ?
+                        Are you sure you want to modify this consultation?
                     </div>
                     <div class="modal-footer">
                     <!--
@@ -187,8 +187,8 @@
 Edit Modal -->
                         <g:form resource="${this.consultation}" controller="consultation" action="edit">
                             <input type="hidden" id="consultationIdEdit" name="id" value="" />
-                            <button type="submit" class="btn btn-success">Modifier</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                            <button type="submit" class="btn btn-success">Update</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         </g:form>
 
 

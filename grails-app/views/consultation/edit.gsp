@@ -14,20 +14,20 @@
         <div class="col-lg-7">
             <div class="card shadow-lg border-0 rounded-lg mt-5">
                 <div class="card-body">
-                    <h1 class="text-center mb-4">Mettre à jour une consultation</h1>
+                    <h1 class="text-center mb-4">Update a consultation</h1>
 
                     <div class="mx-auto"> <!-- Centering the form -->
                         <g:form resource="${this.consultation}" controller="consultation" action="save" method="POST" enctype="multipart/form-data">
 
                             <div class="form-group">
                                 <!-- Select Patient Carnet -->
-                                <label for="carnet">Sélectionnez le Carnet du Patient:</label>
+                                <label for="carnet">Select the Patient carnet:</label>
                                 <g:select name="carnet.id" from="${Carnet.list()}" optionKey="id" optionValue="fname" class="form-control mb-3" value="${consultation.carnet.fname}"/>
                             </div>
 
                             <div class="form-group">
                                 <!-- Observation -->
-                                <label for="description">Observations:</label>
+                                <label for="description">Comments:</label>
                                 <g:textArea name="description" id="description" class="form-control mb-3" value="${consultation.note.description}"></g:textArea>
                             </div>
 
@@ -35,19 +35,19 @@
 
                             <div class="form-group">
                                 <!-- Search Pathologies -->
-                                <label for="pathologySearch">Rechercher des pathologies:</label>
+                                <label for="pathologySearch">Search for pathologies:</label>
                                 <input type="text" id="pathologySearch" class="form-control mb-3" placeholder="Search Pathologies">
                                 <ul id="pathologyList" class="list-group"></ul>
                             </div>
 
                             <div id="selectedPathologies" class="alert alert-info mt-3">
                                 <!-- Bootstrap alert styling, you can customize this further -->
-                                Les pathologies sélectionnées sont affichées ici:
+                                The selected pathologies are displayed here:
                             </div>
 
                             <div id="selectedPathologiesOld" class="alert alert-secondary mt-3">
                                 <!-- Bootstrap alert styling, you can customize this further -->
-                                Les pathologies sélectionnées précédemment sont affichées ici:
+                                The previously selected pathologies are displayed here:
                                 <g:each in="${consultation.pathologies}" var="pathology" status="i">
                                     ${pathology.name}
                                     <!-- Add a comma and space after each pathology, except for the last one -->
@@ -59,7 +59,7 @@
 
                             <div class="form-group">
                                 <!-- File upload input -->
-                                <label for="files">Choisir des fichiers:</label>
+                                <label for="files">Choose files:</label>
 
                                 <input type="file" id="files" name="files" accept=".pdf, .doc, .docx, .png, .jpg, .jpeg" class="form-control mb-3" multiple>
                             </div>
@@ -68,7 +68,7 @@
 
 
 
-                                    <p>Fichiers sélectionnées précédemment:  </p>
+                                    <p>Previously selected files:  </p>
 
                                     <div class="row">
                                         <g:each in="${consultation.note.files}" var="file">
@@ -97,8 +97,8 @@
                             <!-- Fields for pathologies, if needed -->
 
                             <div class="mt-3">
-                                <button type="submit" class="btn btn-primary">Enregistrer</button>
-                                <button type="reset" class="btn btn-secondary">Réinitiliser</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
                             </div>
 
                         </g:form>
