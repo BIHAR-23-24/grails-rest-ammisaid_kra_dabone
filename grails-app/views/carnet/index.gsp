@@ -36,8 +36,8 @@
                 <thead>
                 <tr>
                     <th>N</th>
-                    <th>Fname</th>
-                    <th>Lname</th>
+                    <th>First name</th>
+                    <th>Last name</th>
                     <th>Dob</th>
                     <th>Tel</th>
                     <th>Weight</th>
