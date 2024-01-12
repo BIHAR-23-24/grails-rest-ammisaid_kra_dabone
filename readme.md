@@ -51,7 +51,7 @@ Le backend de décompose en 4 grandes parties :
 Les différentes catégories d'utilisateur sont les suivants:
 
 | Utilisateur    | Rôle          | Droits                                                                                                        |
-|----------------|---------------|---------------------------------------------------------------------------------------------------------------|
+|----------------|---------------|--------------------------------------------------------------------------------------------------------|
 | PATIENT         | `ROLE_PATIENT` | Pas d’accès autorisé à la plateforme
 |
 | Médecin      | `ROLE_DOC`    | Connexion, Modification et suppression et consultation de tous les objets sauf les utilisateurs            
