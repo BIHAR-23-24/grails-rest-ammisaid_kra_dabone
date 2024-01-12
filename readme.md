@@ -52,12 +52,9 @@ Les différentes catégories d'utilisateur sont les suivants:
 
 | Utilisateur    | Rôle          | Droits                                                                                                        |
 |----------------|---------------|--------------------------------------------------------------------------------------------------------|
-| PATIENT         | `ROLE_PATIENT` | Pas d’accès autorisé à la plateforme
-|
-| Médecin      | `ROLE_DOC`    | Connexion, Modification et suppression et consultation de tous les objets sauf les utilisateurs            
-|
-| Administrateur | `ROLE_ADMIN`  | Connexion, Création, Suppression, Modification des utilisateurs et les objets 
-|
+| PATIENT         | `ROLE_PATIENT` | Pas d’accès autorisé à la plateforme |
+| Médecin      | `ROLE_DOC`    | Connexion, Modification et suppression et consultation de tous les objets sauf les utilisateurs          |
+| Administrateur | `ROLE_ADMIN`  | Connexion, Création, Suppression, Modification des utilisateurs et les objets |
 
 Lors du lancement de l'application, 1 administrateur est créé, 3 médecins sont créés et 3 clients sonts créés dont chacun possède un dossier patient comprend une consultation.
 
