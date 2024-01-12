@@ -12,6 +12,7 @@ Dans la suite nous présenterons les deux grands modules de eHealth, son Backend
   - [Gestion des Carnets](#la-gestion-des-carnets)
   - [Gestion des Consultations](#la-gestion-des-consultations)
 - [API](#api)
+- [BILAN](#bilan)
 
 ## Généralité
 
