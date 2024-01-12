@@ -43,8 +43,8 @@ Le backend de décompose en 4 grandes parties :
 
 - L'authentification
 - La gestion des utilisateurs
-- La gestion des annonces
-- Le moteur de recherche
+- La gestion des consultations 
+- La gestion des carnets 
 
 ### Rôles et Utilisateurs
 
@@ -52,13 +52,16 @@ Les différentes catégories d'utilisateur sont les suivants:
 
 | Utilisateur    | Rôle          | Droits                                                                                                        |
 |----------------|---------------|---------------------------------------------------------------------------------------------------------------|
-| Client         | `ROLE_CLIENT` | Connexion, Voir ses annonces, Supprimer ses annonces                                                          |
-| Modérateur     | `ROLE_MOD`    | Connexion, Modification et suppression des annonces, Consultation de tous les objets                          |
-| Administrateur | `ROLE_ADMIN`  | Connexion, Création, Suppression, Modification des utilisateurs et annonces, Consultation de tous les objets  |
+| PATIENT         | `ROLE_PATIENT` | Pas d’accès autorisé à la plateforme
+|
+| Médecin      | `ROLE_DOC`    | Connexion, Modification et suppression et consultation de tous les objets sauf les utilisateurs            
+|
+| Administrateur | `ROLE_ADMIN`  | Connexion, Création, Suppression, Modification des utilisateurs et les objets 
+|
 
-Lors du lancement de l'application, 1 administrateur est créé, 2 modérateurs sont créés, 20 clients sonts créés dont chacun possède 5 annonces où chacune possède 5 illustrations.
+Lors du lancement de l'application, 1 administrateur est créé, 3 médecins sont créés et 3 clients sonts créés dont chacun possède un dossier patient comprend une consultation.
 
-Tous les utilisateurs peuvent avoir une photo, un nom et un prénoms en plus de leur nom utilisateur. D'ailleurs tous les clients générés possède une photo. Les photos utilisées ont été générée par une IA ! Elles ne sont donc pas celles de personnes existantes.
+Tous les utilisateurs peuvent avoir , un nom et un prénoms en plus de leur nom utilisateur. D'ailleurs tous les clients générés possède une photo. Les photos utilisées ont été générée par une IA ! Elles ne sont donc pas celles de personnes existantes.
 
 ![Capture Moteur de recherche](docs/user.png)
 
