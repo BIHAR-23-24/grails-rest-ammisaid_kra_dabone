@@ -99,14 +99,13 @@ Elle est reservée aux administrateurs dans le sens de la création. L'admin peu
 
 ### La gestion des Carnets 
 
-  Create (Créer) : Ajouter une nouvelle entrée dans le carnet avec des détails tels que le nom, l'âge, le numéro de téléphone, etc.
-  Read (Lire) : Afficher les détails de toutes les entrées du carnet.
-  Update (Mettre à jour) : Modifier les informations d'une entrée existante dans le carnet.
-  Delete (Supprimer) : Supprimer une entrée du carnet.
+La gestion des carnets comprend quatre opérations principales : créer, lire, mettre à jour et supprimer des entrées. Pour créer une entrée, ajoutez des détails tels que le nom, l'âge et le numéro de téléphone. La lecture affiche les détails de toutes les entrées. La mise à jour modifie les informations d'une entrée existante, et la suppression retire une entrée du carnet. Ces fonctions offrent un moyen complet de gérer les informations d'un carnet.
 
   <img width="1440" alt="Capture d’écran 2024-01-12 à 11 52 31" src="https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/62396414/3f5b06f6-2ba6-46b6-8c75-c2dac55e8557">
 
 ### La gestion des Consultations  
+
+La gestion des consultations comprend les opérations de base (créer, lire, mettre à jour, supprimer) avec une fonctionnalité supplémentaire de sauvegarde de fichiers associés aux consultations. 
 
 <img width="1440" alt="Capture d’écran 2024-01-12 à 11 55 28" src="https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/62396414/0b835b33-2590-4494-a668-7a3740127a73">
 
