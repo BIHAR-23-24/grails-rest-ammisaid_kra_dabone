@@ -96,3 +96,7 @@ Si vous réalisez des fonctionnalités non demandées, je rajoute des bonus, par
 - Une carte qui présente les points d'intérêt
 - Un formulaire d'upload drag & drop en ajax avec preview
 - ...
+
+
+
+# Readme projet
