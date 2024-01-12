@@ -27,8 +27,6 @@ Globalement eHealth propose les fonctionnalités pour la gestion d'un site de co
 - Gestion des droits d'accès : Chaque utilisateur peut éffectuer un nombre limité d'actions
 - API prenant en charge les méthodes GET / POST / PUT / PATCH et DELETE
 
-En plus de ces fonctionnalités, nous avons ajouté 
-
 
 
 ## Backend
@@ -152,7 +150,17 @@ Supprimer une consultation : /api/consultation/{id} pour la suppression des cons
 
 ## Bilan
 
-L'objectif était de mettre en place un site de gestion d'annonces en grails ayant un backend et une api pour la gestion des annonces, utilisateurs et illustrations. On peut que l'objectif est a été atteint car nous disposons d'une application grails qui remplie la grande des charges imposée. Et en plus des fonctionnalité de bases nous avons enrichis les utilisateurs en leur ajoutant des photos et ajouté un moteur de recherche d'annonce. Cependant nous n'avons pas pu mettre en place un méchanisme de modification des photos et des mots de passe de utilisateurs ainsi qu'une option pour recherche les clients par leur nom. Malgré cela, nous espérons avoir fournir un travail correspondant suffisamment aux exigences établies.
+
+- eHealth est une application Grails complète et intuitive conçue pour la gestion efficace des centres de santé dédiés au personnel de niveau administratif, tels que les médecins propriétaires et le Stuff. 
+
+- Le backend et l'API intègrent de manière transparente diverses fonctionnalités, y compris des opérations CRUD sur les utilisateurs, les consultations, etc. en utilisant l'architecture MVC. 
+
+- L'application donne la priorité à la sécurité, avec des rôles et des droits d'accès bien définis (les comptes des médecins peuvent voir certaines fonctionnalités, mais les comptes des patients sont limités).
+
+- Les points forts de l'application sont une interface esthétiquement agréable, une documentation complète, une conception claire de l'API et une architecture MVC. 
+
+Bien que l'application excelle en termes de complexité et de facilité d'utilisation, davantage de détails sur la gestion des annonces et les exigences du système pourraient améliorer la compréhension globale,  En résumé, eHealth se présente comme une solution prometteuse pour rationaliser les opérations des centres de soins de santé.
+
 
 ### Crédits
 - Faiçal AMMI SAID
