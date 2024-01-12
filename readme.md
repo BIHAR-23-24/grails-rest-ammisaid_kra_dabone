@@ -1,4 +1,4 @@
-![image](https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/70859943/2a636f12-47d6-43bb-b655-8a84b4cad1b4)# eHealth
+# eHealth
 
 eHealth est une application grails simple et intuitive qui permet lagestion d'un centre de santé. Elle permet plus précisement de gérer plusieurs utilisateurs de façon fluide et des des dossiers patients, des consultations et leurs illustrations.
 
