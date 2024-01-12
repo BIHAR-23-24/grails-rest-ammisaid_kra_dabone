@@ -14,6 +14,8 @@ Dans la suite nous présenterons les deux grands modules de lecoincoin, son Back
   - [Rôles et Utilisateurs](#rôles-et-utilisateurs)
   - [Gestion des utilisateurs](#la-gestion-des-utilisateurs)
   - [Gestion des annonces](#la-gestion-des-annonces)
+  - [Gestion des Carnets](#la-gestion-des-carnets)
+  - [Gestion des Consultations](#la-gestion-des-consultation)
   - [Mot de recherche](#le-moteur-de-recherche)
 - [API](#api)
 
