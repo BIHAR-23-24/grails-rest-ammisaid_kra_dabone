@@ -1,4 +1,4 @@
-# eHealth
+![image](https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/70859943/2a636f12-47d6-43bb-b655-8a84b4cad1b4)# eHealth
 
 eHealth est une application grails simple et intuitive qui permet lagestion d'un centre de santé. Elle permet plus précisement de gérer plusieurs utilisateurs de façon fluide et des des dossiers patients, des consultations et leurs illustrations.
 
@@ -73,17 +73,22 @@ Lors du lancement de l'application, 1 administrateur est créé, 3 médecins son
 Pour se connecter en tant qu'administrateur il suffit d'utiliser les identifiants suivant :
 
 - Nom utilisateur : admin
-- Mot de passe    : admin
+- Mot de passe    : admin
 
-Pour se connecter en tant que modérateur il est possible d'utiliser les identifiants suivant :
+Pour se connecter en tant que "Doctor" il est possible d'utiliser les identifiants suivant :
 
-- Nom utilisateur : moderateur1
-- Mot de passe    : password
+- Nom utilisateur : mark
+- Mot de passe    : password
 - 
-  Pour se connecter en tant que modérateur il est possible d'utiliser les identifiants suivant :
+  Pour se connecter en tant que "Patient" il est possible d'utiliser les identifiants suivant :
 
-- Nom utilisateur : client1
-- Mot de passe    : password
+- Nom utilisateur : Rana  
+- Mot de passe    : password
+
+Pour se connecter en tant que "Auxiliaire médical" il est possible d'utiliser les identifiants suivant :
+
+- Nom utilisateur : lara  
+- Mot de passe    : password
 
 #### Accésibilité
 
@@ -136,15 +141,29 @@ Il permet de rechercher une annonce rapidement à partir de son titre.
 
 ## API
 
+## API
+Postman a été utilisé comme client API
+Deux Collections créées : Collection API USER, Collection API CONSUTATION
+
 l'API possèdent 3 groupes de endpoints :
+- Login  : `/api/user/login` Pour l'authentification (Pour l'usage d'un access token)
+  ![image](https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/70859943/55434968-e0a4-4121-9cdb-6b7736894760)
+- GET USER :  `/api/user/{id}` Pour recuperer user
+  ![image](https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/70859943/5dea73d3-83b5-4136-80c7-16114fe7bf44)
+- EDIT USER : `/api/user/{id}` Pour la manipulation des utilisateurs
+- EDIT USER PARTIEL : `/api/user/{id}` Pour la manipulation des utilisateurs
+- DELETE USER : `/api/user/{id}` Pour la suppression des utilisateurs
 
-- `/userApi/user/{id}` Pour l'authentification (Pour l'usage d'un access token)
-- `/userApi/consultations` Pour la manipulation des consultations 
-- `/userApi/users` Pour la manipulation des utilisateurs
+Obtenir une consultation : /api/consultation/{id} pour récupérer des informations sur la consultation
+![image](https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/70859943/7534bf5a-4b98-41cb-b983-87a2253dffa7)
 
+Modifier une consultation : /api/consultation/{id} pour la gestion des consultations
+![image](https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/70859943/1e3730a9-c516-44ec-900a-98c7749de071)
 
-L'explication de l'usage de l'api est présente dans la documentation en pdf ([Documentation PDF de l'API](/ReadMe.pdf)) et les tests et une documentation plus détaillée sont présents dans la collection postman
-([Collection Postman de l'API](/LECOINCOIN%20CLIENT%20API.postman_collection.json))
+Modifier partiellement une consultation : /api/consultation/{id} pour la gestion partielle des consultations
+Supprimer une consultation : /api/consultation/{id} pour la suppression des consultations"
+![image](https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/70859943/3d247b7c-2a75-4f56-9f40-63d4d6b940be)
+
 
 ## Bilan
 
