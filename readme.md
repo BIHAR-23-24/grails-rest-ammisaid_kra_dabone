@@ -2,7 +2,7 @@
 
 eHealth est une application grails simple et intuitive qui permet lagestion d'un centre de santé. Elle permet plus précisement de gérer plusieurs utilisateurs de façon fluide et des des dossiers patients, des consultations et leurs illustrations.
 
-Dans la suite nous présenterons les deux grands modules de eHealth, son Backend et son API.
+Dans la suite nous présenterons les grandes modules de eHealth.
 
 - [Généralité](#généralité)
 - [Backend](#backend)
