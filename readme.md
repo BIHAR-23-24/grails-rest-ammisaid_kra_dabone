@@ -54,17 +54,22 @@ Les différentes catégories d'utilisateur sont les suivants:
 |----------------|---------------|--------------------------------------------------------------------------------------------------------|
 | PATIENT         | `ROLE_PATIENT` | Pas d’accès autorisé à la plateforme |
 | Médecin      | `ROLE_DOC`    | Connexion, Modification et suppression et consultation de tous les objets sauf les utilisateurs          |
+| Auxiliaire    | `ROLE_AUX`    | Connexion, Modification et suppression et consultation de tous les objets sauf les utilisateurs          |
 | Administrateur | `ROLE_ADMIN`  | Connexion, Création, Suppression, Modification des utilisateurs et les objets |
+
+
+### Accueil 
 
 Lors du lancement de l'application, 1 administrateur est créé, 3 médecins sont créés et 3 clients sonts créés dont chacun possède un dossier patient comprend une consultation.
 
-Tous les utilisateurs peuvent avoir , un nom et un prénoms en plus de leur nom utilisateur. D'ailleurs tous les clients générés possède une photo. Les photos utilisées ont été générée par une IA ! Elles ne sont donc pas celles de personnes existantes.
+<img width="1440" alt="Capture d’écran 2024-01-12 à 11 04 52" src="https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/62396414/576d4bfa-68c4-45a1-b6bb-f1e21cb6678d">
 
-![Capture Moteur de recherche](docs/user.png)
+
 
 ### Authentification
 
-![Capture page de connexion](/docs/login.png)
+<img width="1440" alt="Capture d’écran 2024-01-12 à 11 05 10" src="https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/62396414/fa3a2d0f-fbb0-4455-ae3f-0dc540c98c29">
+
 
 #### Identifiants
 
@@ -85,15 +90,42 @@ Pour se connecter en tant que modérateur il est possible d'utiliser les identif
 
 #### Accésibilité
 
-Lors de la connexion les clients sont redirigés sur une page qui affiche uniquement leur annonces. Les autres utilisateurs ont accès à toute l'application dans la limite de leur rôle et droits
+Lors de la connexion le personnel est redirigé sur une page qui affiche uniquement la listes des carnets des patients. Les autres utilisateurs ont accès à toute l'application dans la limite de leur rôle et droits
 
-![Capture page client](docs/client.png)
+<img width="1440" alt="Capture d’écran 2024-01-12 à 11 46 23" src="https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/62396414/9b85b8db-abfc-4730-bdd8-cd4063d3c0a2">
+
 
 ### La gestion des utilisateurs
 
-Elle est reservée aux administrateurs dans le sens de la création. Les modérateurs peuvent consulter les profils des autres utilisateurs. Il est aussi possible de votre le nombre d'annonces de chaque utilisateur et voir leurs annonces en cliquant sur eux.
+Elle est reservée aux administrateurs dans le sens de la création. L'admin peut consulter les profils des autres utilisateurs. 
 
-![Capture page utilisateurs](docs/users.png)
+<img width="1440" alt="Capture d’écran 2024-01-12 à 11 46 23" src="https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/62396414/4967e4e7-dafa-40ac-9677-ef6edf6192e1">
+
+### La gestion des Carnets 
+
+  Create (Créer) : Ajouter une nouvelle entrée dans le carnet avec des détails tels que le nom, l'âge, le numéro de téléphone, etc.
+  Read (Lire) : Afficher les détails de toutes les entrées du carnet.
+  Update (Mettre à jour) : Modifier les informations d'une entrée existante dans le carnet.
+  Delete (Supprimer) : Supprimer une entrée du carnet.
+
+  <img width="1440" alt="Capture d’écran 2024-01-12 à 11 52 31" src="https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/62396414/3f5b06f6-2ba6-46b6-8c75-c2dac55e8557">
+
+### La gestion des Carnets 
+
+<img width="1440" alt="Capture d’écran 2024-01-12 à 11 55 28" src="https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/62396414/0b835b33-2590-4494-a668-7a3740127a73">
+
+<img width="1440" alt="Capture d’écran 2024-01-12 à 11 55 45" src="https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/62396414/a4b87772-3ecb-4b71-9505-a3eb574c463a">
+
+
+
+  
+### La gestion des Pathologies
+
+  Associer une Pathologie : Ajouter des informations de pathologie associées à une entrée du carnet.
+  Consulter les Pathologies : Afficher les informations de pathologie associées à une entrée spécifique du carnet.
+
+  <img width="1440" alt="Capture d’écran 2024-01-12 à 11 53 08" src="https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/62396414/e2c9d586-92b6-4ad8-8261-ad0ee4dcec3b">
+
 
 ### La gestion des annonces
 
