@@ -98,7 +98,8 @@ Lors de la connexion le personnel est redirigé sur une page qui affiche uniquem
 
 Elle est reservée aux administrateurs dans le sens de la création. L'admin peut consulter les profils des autres utilisateurs. 
 
-<img width="1440" alt="Capture d’écran 2024-01-12 à 11 46 23" src="https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/62396414/4967e4e7-dafa-40ac-9677-ef6edf6192e1">
+<img width="1440" alt="Capture d’écran 2024-01-12 à 12 54 59" src="https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/62396414/2f6f35e8-9689-40e5-9950-5fa81da0c712">
+
 
 ### La gestion des Carnets 
 
