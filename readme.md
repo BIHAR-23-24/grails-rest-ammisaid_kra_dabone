@@ -109,9 +109,10 @@ Il permet de rechercher une annonce rapidement à partir de son titre.
 
 l'API possèdent 3 groupes de endpoints :
 
-- `/api/login` Pour l'authentification (Pour l'usage d'un access token)
-- `/api/annonce(s)` Pour la manipulation des annonces
-- `/api/user(s)` Pour la manipulation des utilisateurs
+- `/userApi/user/{id}` Pour l'authentification (Pour l'usage d'un access token)
+- `/userApi/consultations` Pour la manipulation des consultations 
+- `/userApi/users` Pour la manipulation des utilisateurs
+
 
 L'explication de l'usage de l'api est présente dans la documentation en pdf ([Documentation PDF de l'API](/ReadMe.pdf)) et les tests et une documentation plus détaillée sont présents dans la collection postman
 ([Collection Postman de l'API](/LECOINCOIN%20CLIENT%20API.postman_collection.json))
