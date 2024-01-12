@@ -24,15 +24,9 @@ Globalement eHealth propose les fonctionnalités pour la gestion d'un site de co
 - Gestion des droits d'accès : Chaque utilisateur peut éffectuer un nombre limité d'actions
 - API prenant en charge les méthodes GET / POST / PUT / PATCH et DELETE
 
-En plus de ces fonctionnalités, nous avons ajouté **un moteur de recherche** pour la recherche rapide des annonces et insisté sur l'aspect esthétique du Backend. Par exemple par l'usage de photos pour tous utilsateurs.
+En plus de ces fonctionnalités, nous avons ajouté 
 
-![Capture Moteur de recherche](docs/moteur-recherche.png)
 
-Les fichiers important à consulter pour la découverte de notre production sont les suivants :
-
-- [Collection Postman de l'API avec documentation](/LECOINCOIN%20CLIENT%20API.postman_collection.json)
-- [Documentation PDF de l'API](/ReadMe.pdf)
-- [Vidéo de démonstration](/demo.mp4)
 
 ## Backend
 
@@ -141,7 +135,6 @@ Il permet de rechercher une annonce rapidement à partir de son titre.
 
 ## API
 
-## API
 Postman a été utilisé comme client API
 Deux Collections créées : Collection API USER, Collection API CONSUTATION
 
