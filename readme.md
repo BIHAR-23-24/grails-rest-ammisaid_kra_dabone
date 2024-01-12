@@ -13,19 +13,18 @@ Dans la suite nous présenterons les deux grands modules de lecoincoin, son Back
   - [Authentification](#authentification)
   - [Rôles et Utilisateurs](#rôles-et-utilisateurs)
   - [Gestion des utilisateurs](#la-gestion-des-utilisateurs)
-  - [Gestion des annonces](#la-gestion-des-annonces)
   - [Gestion des Carnets](#la-gestion-des-carnets)
   - [Gestion des Consultations](#la-gestion-des-consultation)
-  - [Mot de recherche](#le-moteur-de-recherche)
 - [API](#api)
 
 ## Généralité
 
-Globalement Lecoincoin propose les fonctionnalités pour la gestion d'un site d'annonce et imposé par le cahier des charges soumis. Ainsi Lecoincoin dispose des fonctionnalités suivantes:
+Globalement eHealth propose les fonctionnalités pour la gestion d'un site de consultation médicale et imposé par le cahier des charges soumis. Ainsi eHealth dispose des fonctionnalités suivantes:
 
-- Opération CRUD sur les utilisateurs, annonces et illustrations 
-- Gestion des utilisateurs : Client, Modérateur, Administrateur
-- Gestion des annonces : Créer, Attribution et Gestion d'illustration
+- Opération CRUD sur les utilisateurs, consultations, illustrations, carnet, note et pathologie
+- Gestion des utilisateurs : Patient, Médecins, Auxiliaires, Administrateur
+- Gestion des consultations : Créer, Attribution et Gestion d'illustration
+- Gestion des carnet : Créer, Attribution
 - Gestion des droits d'accès : Chaque utilisateur peut éffectuer un nombre limité d'actions
 - API prenant en charge les méthodes GET / POST / PUT / PATCH et DELETE
 
