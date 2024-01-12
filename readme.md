@@ -1,12 +1,8 @@
-# Lecoincoin
+# eHealth
 
-[Vidéo de démonstration](/demo.mp4)
+eHealth est une application grails simple et intuitive qui permet lagestion d'un centre de santé. Elle permet plus précisement de gérer plusieurs utilisateurs de façon fluide et des des dossiers patients, des consultations et leurs illustrations.
 
-![Logo](docs/lecoincoin.png)
-
-Lecoincoin est une application grails simple et intuitive qui permet de gérer un site d'annonce. Elle permet plus précisement de gérer plusieurs utilisateurs de façon fluide et des annonces et leurs illustrations.
-
-Dans la suite nous présenterons les deux grands modules de lecoincoin, son Backend et son API.
+Dans la suite nous présenterons les deux grands modules de eHealth, son Backend et son API.
 
 - [Généralité](#généralité)
 - [Backend](#backend)
