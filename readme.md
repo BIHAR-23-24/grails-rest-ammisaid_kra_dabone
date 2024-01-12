@@ -124,17 +124,6 @@ La gestion des consultations comprend les opérations de base (créer, lire, met
 
   <img width="1440" alt="Capture d’écran 2024-01-12 à 11 53 08" src="https://github.com/BIHAR-23-24/grails-rest-ammisaid_kra_dabone/assets/62396414/e2c9d586-92b6-4ad8-8261-ad0ee4dcec3b">
 
-
-### La gestion des annonces
-
-Elle permet aux modérateurs de modifier et supprimer les annonces. Seul les administrateurs peuvent en créer et attribuer des annonces à des clients.
-
-![Capture page illustrations annonces](docs/annonces.png)
-
-### Le moteur de recherche
-
-Il permet de rechercher une annonce rapidement à partir de son titre.
-
 ## API
 
 Postman a été utilisé comme client API
